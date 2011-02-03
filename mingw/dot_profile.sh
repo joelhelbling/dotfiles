@@ -5,7 +5,7 @@
 source ~/dotfiles/file_aliases.sh
 source ~/dotfiles/git/git_aliases.sh
 source ~/dotfiles/ps1.sh
-source ~/dotfiles/nw_proxy.sh
+source ~/dotfiles/proxy/proxy.sh
 source ~/dotfiles/mingw/ruby_switcher.sh
 
 # setup our ruby aliases
