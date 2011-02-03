@@ -2,9 +2,9 @@
 # source this file from ~/.profile
 
 # load up the stuff we use
-source ~/dotfiles/file_aliases.sh
+source ~/dotfiles/ui/ps1.sh
+source ~/dotfiles/ui/file_aliases.sh
 source ~/dotfiles/git/git_aliases.sh
-source ~/dotfiles/ps1.sh
 source ~/dotfiles/proxy/proxy.sh
 source ~/dotfiles/mingw/ruby_switcher.sh
 
