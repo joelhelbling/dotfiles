@@ -20,3 +20,4 @@ ruby192
 
 # handy aliases
 alias gomavs='cd /c/dev/mavericks'
+alias gogit='gomavs && cd git-svn'
