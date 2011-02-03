@@ -1,7 +1,8 @@
 
 # source from ~/.profile
 
-source ~/dotfiles/git_aliases.sh
+source ~/dotfiles/git/git_aliases.sh
+source ~/dotfiles/git/git-completion.bash
 source ~/dotfiles/file_aliases.sh
 source ~/dotfiles/mingw/ruby_switcher.sh
 source ~/dotfiles/nw_proxy.sh
