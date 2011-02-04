@@ -1,2 +1,17 @@
-*.swp
-.swo
+# Vim temp files
+.*.sw*
+
+# Emacs temp files
+\#*#
+
+# SVN files
+.svn
+
+# Eclipse Workspace files
+.metadata
+
+# mac or something
+.DS_Store
+
+# windows
+Thumbs.db
