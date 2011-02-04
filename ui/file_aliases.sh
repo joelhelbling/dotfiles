@@ -22,5 +22,3 @@ alias la='ls -A'                              # all but . and ..
 
 alias l='ls -CF'                              #
 alias lS='ls -FalS --color=tty'
-#alias ls='ls -F --color=tty'
-#alias la='ls -a'
