@@ -6,8 +6,15 @@ export DK_YELLOW="\e[0;33m"
 export DK_GREEN="\e[0;32m"
 export NORMAL_COLOR='\e[m'
 
-# git completion
+# git!
+
+# show * for unstaged and + for uncommitted changes
 export GIT_PS1_SHOWDIRTYSTATE=true
+
+# show $ if there are stashed files
+export GIT_PS1_SHOWSTASHSTATE=true
+
+# git completion
 source ~/dotfiles/git/git-completion.bash
 
 # setting the console prompt
