@@ -1,3 +1,9 @@
+" for windows
+if has("gui_win32") || has("gui_win32s")
+  set guifont=Consolas:h14
+  set enc=utf-8
+endif
+
 if has("gui_mac") || has("gui_macvim")
     set guifont=Andale\ Mono:h18
     " key binding for Command-T to behave properly
