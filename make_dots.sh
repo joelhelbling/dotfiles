@@ -21,6 +21,9 @@ case "$1" in
   echo "Making dot files for Mac"
   # not sure offhand how to make the dotfiles for mac...
   # I'll do this later when I'm on my mac
+
+  # .gitignore
+  ln -s git/gitignore ../.gitignore
 ;;
 "mingw")
   echo "Making dot files for MinGW"
@@ -30,6 +33,9 @@ case "$1" in
 
   # _vimrc
   make_vimrc '../_vimrc' 'vimfiles'
+
+  # .gitignore
+  cp git/gitignore ../.gitignore
 ;;
 "ubuntu")
   echo "Making dot files for Ubuntu"
@@ -39,6 +45,9 @@ case "$1" in
 
   # .vimrc
   make_vimrc '../.vimrc' '.vim'
+
+  # .gitignore
+  ln -s git/gitignore ../.gitignore
 ;;
 *)
   echo "Don't know how to setup dot files for $1"

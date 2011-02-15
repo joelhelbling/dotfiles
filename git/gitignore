@@ -4,14 +4,19 @@
 # Emacs temp files
 \#*#
 
-# SVN files
-.svn
-
-# Eclipse Workspace files
+# other IDE files
 .metadata
+.project
+.idea
 
 # mac or something
 .DS_Store
 
 # windows
 Thumbs.db
+
+# SVN files
+.svn
+
+# git-svn authors file
+git-svn-authors.txt
