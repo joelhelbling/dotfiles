@@ -37,7 +37,7 @@ function webopen() {
 alias web='webopen `pwd`'
 
 # I don't know why putting this in a different
-# block, but it does, so I do.
+# block makes it work, but it does, so I do.
 if [ "$MSYSTEM" == "MINGW32" ]; then
   # we'll start with ruby 1.9.2
   ruby192

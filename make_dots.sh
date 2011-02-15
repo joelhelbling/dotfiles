@@ -17,9 +17,19 @@ source ~/vimfiles/vimrc
 source ~/dotfiles/vim/vimrc' > ~/_vimrc
 ;;
 "ubuntu")
-  echo "Hi, 'Buntu!"
+  # .profile
+  sed -i 's/source ~\/dotfiles.*//g' ~/.profile
+  echo 'source ~/dotfiles/os/ubuntu/dot_profile.sh' >> ~/.profile
+
+  # .vimrc
+  echo '
+" first load akitaonrails vimrc
+source ~/.vim/vimrc
+
+" now load my custom vim settings
+source ~/dotfiles/vim/vimrc' > ~/.vimrc
 ;;
 *)
-  echo "No idea."
+  echo "Don't know how to setup dot files for $1"
 ;;
 esac

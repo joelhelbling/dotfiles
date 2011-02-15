@@ -11,4 +11,6 @@ alias gk='gitk --all&'
 alias gx='gitx --all'
 
 alias gitst_on='export GIT_PS1_SHOWDIRTYSTATE=true;export GIT_PS1_SHOWSTASHSTATE=true'
-alias gitst_off='export GIT_PS1_SHOWDIRTYSTATE=;export GIT_PS1_SHOWSTASHSTATE='
+alias gitst_off='export GIT_PS1_SHOWSTASHSTATE=;export GIT_PS1_SHOWSTASHSTATE='
+
+# to change command line (PS1) settings for showing dirty/stash states, see ps1.sh

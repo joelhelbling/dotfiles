@@ -15,7 +15,7 @@ map <silent> <C-F2> :if &guioptions =~# 'm' <Bar>
 set number                                " turn on line numbers
 set lines=50                              " set window height
 set columns=130                           " set window width
-set lcs=tab:>.,trail:�,nbsp:%             " set trailing (invisible) characters
+set lcs=tab:>.,trail:·,nbsp:%             " set trailing (invisible) characters
 set list                                  " show invisible characters
 set cursorline
 
@@ -27,8 +27,7 @@ set laststatus=2                          " show status line
 
 " windows font
 if has("win32") || has("gui_win32s")
-  set guifont=Consolas:h14                " set font for windows
-  set enc=utf-8                           " set encoding for windows
+  set guifont=Consolas:h14:cANSI          " set font for windows
 endif
 
 " mac font
