@@ -1,5 +1,5 @@
 
-# nationwide proxy server
+# proxy server settings
 export USERNAME=`echo $LOGNAME | tr "A-Z" "a-z"`
 export PROXY_PWD=MyPassWord
 PROXY_PROTOCOL=http
