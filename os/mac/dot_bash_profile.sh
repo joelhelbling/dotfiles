@@ -6,7 +6,7 @@ export VIM_APP_DIR=/Applications
 # load up the stuff we use
 source ~/dotfiles/ui/ps1.sh
 source ~/dotfiles/ui/file_aliases.sh
-source ~/dotfiles/mac/file_aliases.sh
+source ~/dotfiles/os/mac/file_aliases.sh
 source ~/dotfiles/git/git_aliases.sh
 
 # some rvm setup
