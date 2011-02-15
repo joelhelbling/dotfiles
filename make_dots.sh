@@ -35,8 +35,7 @@ case "$1" in
   echo "Making dot files for Ubuntu"
 
   # .profile
-  sed -i 's/source ~\/dotfiles.*//g' ~/.profile
-  echo 'source ~/dotfiles/os/ubuntu/dot_profile.sh' >> ~/.profile
+  sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_profile\.sh/g' ~/.profile
 
   # .vimrc
   make_vimrc '../.vimrc' '.vim'
