@@ -17,7 +17,7 @@ fi
 
 # a ruby switcher for MinGW
 if [ "$MSYSTEM" == "MINGW32" ]; then
-  source ~/dotfiles/mingw/ruby_switcher.sh
+  source ~/dotfiles/os/mingw/ruby_switcher.sh
 
   # setup our ruby aliases
   alias ruby192='use_ruby ruby 1.9.2'
