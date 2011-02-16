@@ -47,7 +47,7 @@ case "$1" in
   make_vimrc '../.vimrc' '.vim'
 
   # .gitignore
-  ln -s git/gitignore ../.gitignore
+  ln -s ~/dotfiles/git/gitignore ../.gitignore
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
