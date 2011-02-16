@@ -2,6 +2,7 @@
 .*.sw*
 
 # Emacs temp files
+*~
 \#*#
 
 # other IDE files
