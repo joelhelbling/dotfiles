@@ -7,6 +7,8 @@ alias gba='git branch -a'
 alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout'
+alias gull='git pull origin master'
+alias gush='git push origin master'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
