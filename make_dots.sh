@@ -16,16 +16,23 @@ source ~/dotfiles/vim/vimrc" > $TARGET
 
 }
 
-case "$1" in
-"mac")
+case `uname` in
+"Darwin")
   echo "Making dot files for Mac"
-  # not sure offhand how to make the dotfiles for mac...
-  # I'll do this later when I'm on my mac
+
+  # .profile
+  echo "source ~/dotfiles/os/mac/dot_bash_profile.sh" > ~/.bash_profile
+
+  # .vimrc
+  make_vimrc '../.vimrc' '.vim'
 
   # .gitignore
-  ln -s git/gitignore ../.gitignore
+  if [ -f ~/.gitignore ]; then
+    rm -f ~/.gitignore
+  fi
+  ln -s ~/dotfiles/git/gitignore ~/.gitignore
 ;;
-"mingw")
+"MINGW32_NT-5.1")
   echo "Making dot files for MinGW"
 
   # .profile
@@ -37,8 +44,8 @@ case "$1" in
   # .gitignore
   cp git/gitignore ../.gitignore
 ;;
-"ubuntu")
-  echo "Making dot files for Ubuntu"
+"Linux")
+  echo "Making dot files for Linux"
 
   # .profile
   sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_profile\.sh/g' ~/.profile
@@ -47,7 +54,10 @@ case "$1" in
   make_vimrc '../.vimrc' '.vim'
 
   # .gitignore
-  ln -s ~/dotfiles/git/gitignore ../.gitignore
+  if [ -f ~/.gitignore ]; then
+    rm -f ~/.gitignore
+  fi
+  ln -s ~/dotfiles/git/gitignore ~/.gitignore
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
