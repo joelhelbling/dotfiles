@@ -58,9 +58,18 @@ set autoindent                            " auto indent is on
 set ignorecase                            " ???
 set backspace=indent,eol,start            " backspace over everything
 set history=1000                          " store lots of :cmdline history
+
 " Make tabs work like we're used to
 map <C-Tab> :tabnext<CR>
 map <C-S-Tab> :tabprev<CR>
+
+if has("win32") || has("gui_win32s")
+  set directory=c:\\TEMP                  " set directory for swap files (e.g. file.rb.swp)
+  set backupdir=c:\\TEMP                  " set directory for backup files (e.g. file.rb~)
+else
+  set directory=/tmp                      " set directory for swap files (e.g. file.rb.swp)
+  set backupdir=/tmp                      " set directory for backup files (e.g. file.rb~)
+endif
 
 " I can't help it.  I still like this plugin
 source ~/dotfiles/vim/minibufexpl.vim

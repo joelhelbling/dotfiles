@@ -42,3 +42,5 @@ if [ "$MSYSTEM" == "MINGW32" ]; then
   # we'll start with ruby 1.9.2
   ruby192
 fi
+
+export RUBYOPT=rubygems
