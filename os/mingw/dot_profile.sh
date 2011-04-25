@@ -26,6 +26,7 @@ if [ "$MSYSTEM" == "MINGW32" ]; then
   alias jruby155='use_ruby jruby 1.5.5'
   alias jruby160='use_ruby jruby 1.6.0.RC1'
   alias jruby160RC2='use_ruby jruby 1.6.0.RC2'
+  alias jruby161='use_ruby jruby 1.6.1'
 
 fi
 
@@ -43,4 +44,4 @@ if [ "$MSYSTEM" == "MINGW32" ]; then
   ruby192
 fi
 
-export RUBYOPT=rubygems
+export RUBYOPT='-rubygems'
