@@ -47,8 +47,10 @@ if has("gui_mac") || has("gui_macvim")
     endtry
 endif
 
-colorscheme railscasts                    " set colorscheme
-syntax on                                 " syntax color highlighting
+syntax enable
+set background=light
+colorscheme solarized                     " set colorscheme
+"syntax on                                 " syntax color highlighting
 
 set softtabstop=2                         " number of spaces in soft tab
 set shiftwidth=2                          " number of spaces to shift <>
