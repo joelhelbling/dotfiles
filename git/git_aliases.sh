@@ -1,3 +1,4 @@
+#!/bin/sh
 
 # Git aliases
 alias gs='git status'

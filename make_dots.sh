@@ -21,7 +21,7 @@ source ~/dotfiles/vim/vimrc" > $TARGET
 
 function make_win_profile {
   echo "
-case `uname` in
+case \`uname\` in
   \"CYGWIN_NT-5.1\")
     echo "Running cygwin..."
     source ~/dotfiles/os/cygwin/dot_profile.sh
