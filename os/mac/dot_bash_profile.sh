@@ -1,7 +1,7 @@
 export JRUBY_HOME=/opt/local/share/java/jruby
 export RUBYOPT='-rubygems'
 export PATH=$PATH:/opt/local/bin:/Users/joelhelbling/bin
-export VIM_APP_DIR=/Applications
+export VIM_APP_DIR=/Applications/editors
 
 # load up the stuff we use
 source ~/dotfiles/ui/ps1.sh

@@ -48,6 +48,10 @@ if has("gui_mac") || has("gui_macvim")
 endif
 
 colorscheme railscasts                    " set colorscheme
+
+" I used this scheme for my slides for GLRB '11
+"colorscheme summerfruit256
+
 syntax on                                 " syntax color highlighting
 
 set softtabstop=2                         " number of spaces in soft tab
@@ -73,3 +77,8 @@ endif
 
 " I can't help it.  I still like this plugin
 source ~/dotfiles/vim/minibufexpl.vim
+
+" solarize theme
+syntax enable
+set background=light
+colorscheme solarized
