@@ -1,3 +1,4 @@
+#!/bin/sh
 
 # Git aliases
 alias gs='git status'
@@ -6,6 +7,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit'
 alias gd='git diff'
+alias gh='git hist'
 alias go='git checkout'
 alias gull='git pull origin master'
 alias gush='git push origin master'

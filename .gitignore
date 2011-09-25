@@ -1,2 +1,5 @@
 *.swp
 proxy.sh
+.idea
+.redcar
+.project

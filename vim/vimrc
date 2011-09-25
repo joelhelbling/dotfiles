@@ -47,11 +47,9 @@ if has("gui_mac") || has("gui_macvim")
     endtry
 endif
 
-colorscheme railscasts                    " set colorscheme
-
-" I used this scheme for my slides for GLRB '11
-"colorscheme summerfruit256
-
+syntax enable
+set background=light
+colorscheme solarized                     " set colorscheme
 syntax on                                 " syntax color highlighting
 
 set softtabstop=2                         " number of spaces in soft tab

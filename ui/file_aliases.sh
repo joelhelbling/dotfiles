@@ -1,3 +1,4 @@
+#!/bin/sh
 
 # Interactive operation...
 alias rm='rm -i'

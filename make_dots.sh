@@ -8,12 +8,31 @@ function make_vimrc {
   echo "VIMFILES: $VIMFILES"
   # .vimrc
   echo "
-\" first load akitaonrails vimrc
+\" fix ctags...
+let Tlist_Ctags_Cmd = 'c:\\usr\\local\\lib\\ctags58\\ctags.exe'
+
+\" load akitaonrails vimrc
 source ~/$VIMFILES/vimrc
 
-\" now load my custom vim settings
+\" load my custom vim settings
 source ~/dotfiles/vim/vimrc" > $TARGET
 
+}
+
+function make_win_profile {
+  echo "
+case \`uname\` in
+  \"CYGWIN_NT-5.1\")
+    echo "Running cygwin..."
+    source ~/dotfiles/os/cygwin/dot_profile.sh
+    ;;
+  \"MINGW32_NT-5.1\")
+    echo "Running mingw..."
+    source ~/dotfiles/os/mingw/dot_profile.sh
+    ;;
+  *)
+    echo \"dot profile: I do not understand this OS\"
+esac" > ~/.profile
 }
 
 case `uname` in
@@ -36,7 +55,8 @@ case `uname` in
   echo "Making dot files for MinGW"
 
   # .profile
-  echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
+  #echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
+  make_win_profile
 
   # _vimrc
   make_vimrc '../_vimrc' 'vimfiles'

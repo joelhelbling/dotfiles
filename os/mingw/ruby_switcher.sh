@@ -25,8 +25,8 @@ use_ruby() {
       | grep -i $RUBY_VERSION  \
       | sed 's:/$::'           )
 
-  # remove old ruby from --and add the desired
-  # ruby to-- the path
+  # remove old ruby from the path, and add
+  # the desired ruby to the path
   NEW_PATH=$NEXT_RUBY/bin:$(   \
         echo $PATH             \
       | tr ":" "\n"            \
@@ -48,24 +48,31 @@ use_ruby() {
     export JRUBY_HOME=
     export RUBY_HOME=$NEXT_RUBY
     export RUBY_EXEC="ruby.exe"
-  else
+    export GEM_EXEC=
+    export IRB_EXEC=
+
+    alias jgem='deleting...'; unalias jgem
+    alias gem='deleting...'; unalias gem
+    alias jirb='deleting...'; unalias jirb
+    alias irb='deleting...'; unalias irb
+  else # It's JRuby
     export RUBY_HOME=
     export JRUBY_HOME=$NEXT_RUBY
     export RUBY_EXEC="jruby.exe"
+    export GEM_EXEC="$RUBY_EXEC -S gem"
+    export IRB_EXEC="$RUBY_EXEC -S irb"
+
+    # These aliases supplied for MinGW so that
+    # it will not inadvertantly execute the
+    # shell scripts provided with ruby/jruby
+    alias gem='$GEM_EXEC'
+    alias jgem='$GEM_EXEC'
+    alias irb='$IRB_EXEC'
+    alias jirb='$IRB_EXEC'
   fi
 
-  export GEM_EXEC="$RUBY_EXEC -S gem"
-  export IRB_EXEC="$RUBY_EXEC -S irb"
-
-  # These aliases supplied for MinGW so that
-  # it will not inadvertantly execute the
-  # shell scripts provided with ruby/jruby
   alias ruby='$RUBY_EXEC'
   alias jruby='$RUBY_EXEC'
-  alias gem='$GEM_EXEC'
-  alias jgem='$GEM_EXEC'
-  alias irb='$IRB_EXEC'
-  alias jirb='$IRB_EXEC'
 
   # gimme some kinda sign!
   $RUBY_EXEC -v
