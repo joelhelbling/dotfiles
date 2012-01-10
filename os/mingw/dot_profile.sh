@@ -71,3 +71,4 @@ export PATH=$( echo $NEW_PATH \
              | sed 's!:/c/Program Files/CA/Cryptography/!!g' )
 
 export CUCUMBER_OUTPUT_ENCODING=cp1252
+alias rvm-prompt='echo $ACTIVE_RUBY'

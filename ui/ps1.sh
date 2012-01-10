@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # colors
 export GRAY="\e[1;30m"
 export CYAN="\e[1;36m"
@@ -19,7 +20,6 @@ export GIT_PS1_SHOWSTASHSTATE=true
 source ~/dotfiles/git/git-completion.bash
 
 # rvm!
-
 function tildafier {
   echo $1 | sed "s@$HOME@~@"
 }

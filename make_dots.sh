@@ -24,6 +24,7 @@ function make_win_profile {
 case \`uname\` in
   \"CYGWIN_NT-5.1\")
     echo "Running cygwin..."
+    export HOME=/home/
     source ~/dotfiles/os/cygwin/dot_profile.sh
     ;;
   \"MINGW32_NT-5.1\")
