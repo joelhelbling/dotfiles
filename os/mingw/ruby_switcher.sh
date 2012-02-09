@@ -10,6 +10,7 @@
 #
 # =================================================================================
 
+
 inject_ruby_path() {
   RUBY_PATH=$1
 
@@ -44,6 +45,10 @@ find_ruby() {
 }
 
 active_ruby() {
+  echo $(            \
+    ruby -v          \
+    | sed "s/ (.*$//" \
+    | tr " " "-"     )
 }
 
 use_ruby() {
@@ -84,5 +89,5 @@ use_ruby() {
   alias jruby='$RUBY_EXEC'
 
   # gimme some kinda sign!
-  $RUBY_EXEC -v
+  active_ruby
 }

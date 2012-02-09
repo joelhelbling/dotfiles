@@ -47,4 +47,4 @@ export RUBYOPT='-rubygems'
 export PATH=$PATH:/c/ruby_devkit/bin
 
 export CUCUMBER_OUTPUT_ENCODING=cp1252
-alias rvm-prompt='echo $ACTIVE_RUBY'
+alias rvm-prompt='active_ruby'
