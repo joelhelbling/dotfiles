@@ -10,40 +10,49 @@
 #
 # =================================================================================
 
-# needed so it'll work the first time
-export PATH=/dummy/ruby/placeholder:$PATH
+inject_ruby_path() {
+  RUBY_PATH=$1
 
-use_ruby() {
-  export RUBY_TYPE=$1
-  export RUBY_VERSION=$2
-
-  # find the desired version of ruby and trim
-  # the trailing forward slash
-  NEXT_RUBY=$(                 \
-        ls -d1 /c/*uby*        \
-      | grep -i $RUBY_TYPE     \
-      | grep -i $RUBY_VERSION  \
-      | sed 's:/$::'           )
-
-  # remove old ruby from the path, and add
-  # the desired ruby to the path
-  NEW_PATH=$NEXT_RUBY/bin:$(   \
+  # remove old ruby from the path
+  RUBYLESS_PATH=$(             \
         echo $PATH             \
       | tr ":" "\n"            \
-      | sed "s:.*ruby.*::i"    \
+      | sed "s!.*ruby.*!!i"    \
       | tr "\n" ":"            \
       | sed 's/:*$//'          )
 
-  # remove any duplicate colons that might've
-  # gotten in
-  export PATH=$(               \
-        echo $NEW_PATH         \
-      | sed 's/::/:/g'         )
+  # add the desired ruby to the path
+  export PATH=$RUBY_PATH:$RUBYLESS_PATH
 
-  # some nice environment variables you might
-  # want to use.  Note that could be used for
-  # scripts which need run whether we're using
-  # ruby or jruby.
+  # remove duplicate colons
+  export PATH=$(               \
+        echo $PATH             \
+      | sed 's/::/:/g'         )
+}
+
+find_ruby() {
+  RUBY_TYPE=$1
+  RUBY_VERSION=$2
+
+  # find the desired version of ruby and trim
+  # the trailing forward slash
+  echo $(                   \
+    ls -d1 /c/*uby*         \
+    | grep -i $RUBY_TYPE    \
+    | grep -i $RUBY_VERSION \
+    | sed 's:/$::'          )
+}
+
+active_ruby() {
+}
+
+use_ruby() {
+  RUBY_TYPE=$1
+  RUBY_VERSION=$2
+  NEXT_RUBY=$(find_ruby $RUBY_TYPE $RUBY_VERSION)
+
+  inject_ruby_path $NEXT_RUBY/bin
+
   if [ "$RUBY_TYPE" == "ruby" ]; then
     export JRUBY_HOME=
     export RUBY_HOME=$NEXT_RUBY
