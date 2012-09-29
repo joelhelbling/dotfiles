@@ -4,8 +4,8 @@
 
 # load up the stuff we use
 source ~/dotfiles/ui/ps1.sh
-#source ~/dotfiles/ui/file_aliases.sh
-#source ~/dotfiles/git/git_aliases.sh
+source ~/dotfiles/ui/file_aliases.sh
+source ~/dotfiles/git/git_aliases.sh
 
 if [ "$USERDOMAIN" == "NWIE" ]; then
   # setup proxy server
@@ -16,7 +16,7 @@ if [ "$USERDOMAIN" == "NWIE" ]; then
   alias gonavs='cd /cygdrive/c/dev/navigators'
 fi
 
-alias mvim='gvim'
+alias mvim=/cygdrive/c/usr/local/vim/vim73/gvim
 
 # open a file in a web browser (chrome)
 export BROWSER=/c/Documents\ and\ Settings/helbinj/Local\ Settings/Application\ Data/Google/Chrome/Application/chrome.exe
@@ -46,3 +46,5 @@ export PATH=$PATH:/cygdrive/c/ruby_devkit/bin
 #             | sed 's!:/c/Program Files/CA/Cryptography/!!g' )
 
 export CUCUMBER_OUTPUT_ENCODING=cp1252
+alias rvm-prompt='echo $ACTIVE_RUBY'
+

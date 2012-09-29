@@ -24,9 +24,14 @@ function make_win_profile {
 case \`uname\` in
   \"CYGWIN_NT-5.1\")
     echo "Running cygwin..."
+    export HOME=/home/
     source ~/dotfiles/os/cygwin/dot_profile.sh
     ;;
   \"MINGW32_NT-5.1\")
+    echo "Running mingw..."
+    source ~/dotfiles/os/mingw/dot_profile.sh
+    ;;
+  \"MINGW32_NT-6.1\")
     echo "Running mingw..."
     source ~/dotfiles/os/mingw/dot_profile.sh
     ;;
@@ -52,8 +57,20 @@ case `uname` in
   ln -s ~/dotfiles/git/gitignore ~/.gitignore
 ;;
 "MINGW32_NT-5.1")
-  echo "Making dot files for MinGW"
+  echo "Making dot files for MinGW (on WindowsXP)"
 
+  # .profile
+  #echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
+  make_win_profile
+
+  # _vimrc
+  make_vimrc '../_vimrc' 'vimfiles'
+
+  # .gitignore
+  cp git/gitignore ../.gitignore
+;;
+"MINGW32_NT-6.1")
+  echo "Making dot files for MinGW (on Windows 7)"
   # .profile
   #echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
   make_win_profile

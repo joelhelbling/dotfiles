@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # colors
 export GRAY="\e[1;30m"
 export CYAN="\e[1;36m"

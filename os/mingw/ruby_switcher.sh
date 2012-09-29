@@ -10,70 +10,90 @@
 #
 # =================================================================================
 
-# needed so it'll work the first time
-export PATH=/dummy/ruby/placeholder:$PATH
 
-use_ruby() {
-  export RUBY_TYPE=$1
-  export RUBY_VERSION=$2
+inject_ruby_path() {
+  RUBY_PATH=$1
 
-  # find the desired version of ruby and trim
-  # the trailing forward slash
-  NEXT_RUBY=$(                 \
-        ls -d1 /c/*uby*        \
-      | grep -i $RUBY_TYPE     \
-      | grep -i $RUBY_VERSION  \
-      | sed 's:/$::'           )
-
-  # remove old ruby from the path, and add
-  # the desired ruby to the path
-  NEW_PATH=$NEXT_RUBY/bin:$(   \
+  # remove old ruby from the path
+  RUBYLESS_PATH=$(             \
         echo $PATH             \
       | tr ":" "\n"            \
-      | sed "s:.*ruby.*::i"    \
+      | sed "s!.*ruby.*!!i"    \
       | tr "\n" ":"            \
       | sed 's/:*$//'          )
 
-  # remove any duplicate colons that might've
-  # gotten in
+  # add the desired ruby to the path
+  export PATH=$RUBY_PATH:$RUBYLESS_PATH
+
+  # remove duplicate colons
   export PATH=$(               \
-        echo $NEW_PATH         \
+        echo $PATH             \
       | sed 's/::/:/g'         )
+}
 
-  # some nice environment variables you might
-  # want to use.  Note that could be used for
-  # scripts which need run whether we're using
-  # ruby or jruby.
-  if [ "$RUBY_TYPE" == "ruby" ]; then
-    export JRUBY_HOME=
-    export RUBY_HOME=$NEXT_RUBY
-    export RUBY_EXEC="ruby.exe"
-    export GEM_EXEC=
-    export IRB_EXEC=
+find_ruby() {
+  RUBY_TYPE=$1
+  RUBY_VERSION=$2
 
-    alias jgem='deleting...'; unalias jgem
-    alias gem='deleting...'; unalias gem
-    alias jirb='deleting...'; unalias jirb
-    alias irb='deleting...'; unalias irb
-  else # It's JRuby
-    export RUBY_HOME=
-    export JRUBY_HOME=$NEXT_RUBY
-    export RUBY_EXEC="jruby.exe"
-    export GEM_EXEC="$RUBY_EXEC -S gem"
-    export IRB_EXEC="$RUBY_EXEC -S irb"
+  # find the desired version of ruby and trim
+  # the trailing forward slash
+  echo $(                   \
+    ls -d1 /c/*uby*         \
+    | grep -i $RUBY_TYPE    \
+    | grep -i $RUBY_VERSION \
+    | sed 's:/$::'          )
+}
 
-    # These aliases supplied for MinGW so that
-    # it will not inadvertantly execute the
-    # shell scripts provided with ruby/jruby
-    alias gem='$GEM_EXEC'
-    alias jgem='$GEM_EXEC'
-    alias irb='$IRB_EXEC'
-    alias jirb='$IRB_EXEC'
+active_ruby() {
+  echo $(            \
+    ruby -v          \
+    | sed "s/ (.*$//" \
+    | tr " " "-"     )
+}
+
+use_ruby() {
+  RUBY_TYPE=$1
+  RUBY_VERSION=$2
+  NEXT_RUBY=$(find_ruby $RUBY_TYPE $RUBY_VERSION)
+
+  if [ "$NEXT_RUBY" == "" ]; then
+    echo "ruby $RUBY_TYPE version $RUBY_VERSION was not found!"
+  else
+    inject_ruby_path $NEXT_RUBY/bin
+
+    if [ "$RUBY_TYPE" == "ruby" ]; then
+      export JRUBY_HOME=
+      export RUBY_HOME=$NEXT_RUBY
+      export RUBY_EXEC="ruby.exe"
+      export GEM_EXEC=
+      export IRB_EXEC=
+
+      alias jgem='deleting...'; unalias jgem
+      alias gem='deleting...'; unalias gem
+      alias jirb='deleting...'; unalias jirb
+      alias irb='deleting...'; unalias irb
+    else # It's JRuby
+      export RUBY_HOME=
+      export JRUBY_HOME=$NEXT_RUBY
+      export RUBY_EXEC="jruby.exe"
+      export GEM_EXEC="$RUBY_EXEC -S gem"
+      export IRB_EXEC="$RUBY_EXEC -S irb"
+
+      # These aliases supplied for MinGW so that
+      # it will not inadvertantly execute the
+      # shell scripts provided with ruby/jruby
+      alias gem='$GEM_EXEC'
+      alias jgem='$GEM_EXEC'
+      alias irb='$IRB_EXEC'
+      alias jirb='$IRB_EXEC'
+    fi
+
+    alias ruby='$RUBY_EXEC'
+    alias jruby='$RUBY_EXEC'
+
+    # gimme some kinda sign!
+    $RUBY_EXEC -v
   fi
 
-  alias ruby='$RUBY_EXEC'
-  alias jruby='$RUBY_EXEC'
-
-  # gimme some kinda sign!
-  $RUBY_EXEC -v
+  echo
 }
