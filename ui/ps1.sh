@@ -29,7 +29,7 @@ function format_dirs {
   for DER in `dir_stack`; do
     if [ "$DER" != "" ]; then
       if [ "$DER" == "~" ]; then
-        echo "-- {$USER's home directory}"
+        echo "-- ~ {$USER's home}"
       else
         echo "-- $DER"
       fi
