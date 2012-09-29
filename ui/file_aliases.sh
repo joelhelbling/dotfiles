@@ -22,4 +22,7 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 
 alias l='ls -CF'                              #
-alias lS='ls -FalS --color=tty'
+alias lS='ls -FalS --color=tty'               # list by size (descending)
+
+#general
+export PATH="$PATH:~/bin"
