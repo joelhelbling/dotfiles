@@ -21,18 +21,26 @@ export GIT_PS1_SHOWSTASHSTATE=true
 source ~/dotfiles/git/git-completion.bash
 
 function dir_stack {
-  echo $(dirs -v | grep -v 0 | sort -r | sed "s@[0-9]@@")
+  echo $(dirs -v            | \
+         grep -v 0          | \
+         sort -r            | \
+         sed "s@^ @@g"      | \
+         sed "s@  @@g"      | \
+         sed "s@[0-9]@[&]::@" )
+}
+
+function prettify {
+  echo "$1" | sed "s@\:\:@ @g"
 }
 
 function format_dirs {
   echo ""
   for DER in `dir_stack`; do
-    if [ "$DER" != "" ]; then
-      if [ "$DER" == "~" ]; then
-        echo "-- ~ {$USER's home}"
-      else
-        echo "-- $DER"
-      fi
+    #if [ '$(echo "$DER" | cut -c0-4)' == "~ " ]; then
+    if [ "`expr $DER : '.*\(\\/dev\/\)'`" ]; then
+      echo $(prettify $DER)
+    else
+      echo "`echo "$(prettify $DER)" | sed "s@\:\:@ @g"` {$USER's home}"
     fi
   done
 }

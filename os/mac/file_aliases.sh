@@ -35,5 +35,5 @@ alias zarc='NO_BIS=y LOCALE="en-ZA" be rails c'
 
 # jump quickly into a project
 function proj {
-  pushd `env ruby ~/bin/proj.rb $1`
+  pushd `env ruby ~/bin/proj.rb $1 $2`
 }
