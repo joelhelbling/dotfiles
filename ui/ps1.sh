@@ -8,6 +8,7 @@ export LIGHT_CYAN="\[\e[0;36m\]"
 export BR_YELLOW="\[\e[1;33m\]"
 export DK_YELLOW="\[\e[0;33m\]"
 export DK_GREEN="\[\e[0;32m\]"
+export LIGHT_GREEN="\[\e[1;32m\]"
 export PERIWINKLE="\[\e[1;35m\]"
 export NORMAL_COLOR="\[\e[m\]"
 
@@ -50,7 +51,7 @@ function format_dirs {
 export PS1="\
 ${CYAN}\
 $(echo '$(format_dirs)')\n\
-${PERIWINKLE}(\
+${LIGHT_GREEN}<\u@\h> ${PERIWINKLE}(\
 $(echo '$(rvm-prompt)')\
 $(echo '$(type __git_ps1 &>/dev/null && __git_ps1 ",\e[0;32m branch: %s\e[1;35m")')\
 )\n\
