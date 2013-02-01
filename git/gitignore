@@ -21,3 +21,8 @@ Thumbs.db
 
 # git-svn authors file
 git-svn-authors.txt
+
+# bundler
+.bundle
+# I keep binstubs here
+.bundler_bin
