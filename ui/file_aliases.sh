@@ -20,9 +20,10 @@ alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
 alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
+alias lal='ls -al'                            # the one I use all day long
 
 alias l='ls -CF'                              #
 alias lS='ls -FalS --color=tty'               # list by size (descending)
 
 #general
-export PATH="$PATH:~/bin"
+export PATH="~/bin:$PATH"
