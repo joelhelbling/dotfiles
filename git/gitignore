@@ -9,6 +9,8 @@
 .metadata
 .project
 .idea
+.session.vim
+*.x.vim
 
 # mac or something
 .DS_Store
