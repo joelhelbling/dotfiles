@@ -28,3 +28,6 @@ git-svn-authors.txt
 .bundle
 # I keep binstubs here
 .bundler_bin
+
+# generally don't want to commit rvmrc
+.rvmrc
