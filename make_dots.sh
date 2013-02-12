@@ -69,4 +69,3 @@ case `uname` in
   echo "Don't know how to setup dot files for $1"
 ;;
 esac
-
