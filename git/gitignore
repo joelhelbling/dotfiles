@@ -30,4 +30,4 @@ git-svn-authors.txt
 .bundler_bin
 
 # generally don't want to commit rvmrc
-.rvmrc
+.rvmrc*

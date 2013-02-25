@@ -66,6 +66,12 @@ case `uname` in
     echo "" >> ~/.bash_profile
   fi
 
+  # .gitconfig
+  if [ -f ~/.gitconfig ]; then
+    rm -f ~/.gitconfig
+  fi
+  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+
   # .gitignore
   if [ -f ~/.gitignore ]; then
     rm -f ~/.gitignore
