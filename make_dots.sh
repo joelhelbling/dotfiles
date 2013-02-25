@@ -56,8 +56,15 @@ case `uname` in
 "Linux")
   echo "Making dot files for Linux"
 
-  # .profile
-  sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_profile\.sh/g' ~/.profile
+  # .bash_profile
+  if grep -q "dotfiles" ~/.bash_profile
+  then
+    sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_bash_profile\.sh/g' ~/.bash_profile
+  else
+    echo "" >> ~/.bash_profile
+    echo "source ~/dotfiles/os/ubuntu/dot_bash_profile.sh" >> ~/.bash_profile
+    echo "" >> ~/.bash_profile
+  fi
 
   # .gitignore
   if [ -f ~/.gitignore ]; then
