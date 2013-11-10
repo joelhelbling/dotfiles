@@ -22,3 +22,5 @@ if [[ -s /Users/joelhelbling/.rvm/scripts/rvm ]] ; then
 fi
 
 HISTCONTROL=ignoredups
+
+source ~/dotfiles/.private/*
