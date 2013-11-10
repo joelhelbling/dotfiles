@@ -35,5 +35,8 @@ git-svn-authors.txt
 .ruby-version
 .ruby-gemset
 
-" Not sure what this is, but I don't want to commit it
+# Not sure what this is, but I don't want to commit it
 .netrwhist
+
+# A place for things which don't belong on Github
+.private

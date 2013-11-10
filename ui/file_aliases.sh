@@ -27,3 +27,5 @@ alias lS='ls -FalS --color=tty'               # list by size (descending)
 
 #general
 export PATH="~/bin:$PATH"
+
+alias wemux="TERM=screen-256color-bce wemux"
