@@ -37,3 +37,12 @@ alias zarc='NO_BIS=y LOCALE="en-ZA" be rails c'
 function proj {
   pushd `env ruby ~/bin/proj.rb $1 $2`
 }
+
+# open a file in Marked.app (markdown preview)
+function marked(){
+  if [ $1 ]; then
+    open -a marked.app $1
+  else
+    open -a marked.app
+  fi
+}
