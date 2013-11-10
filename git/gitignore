@@ -9,6 +9,7 @@
 .metadata
 .project
 .idea
+*.iml
 .session.vim
 *.x.vim
 
@@ -31,3 +32,8 @@ git-svn-authors.txt
 
 # generally don't want to commit rvmrc
 .rvmrc*
+.ruby-version
+.ruby-gemset
+
+" Not sure what this is, but I don't want to commit it
+.netrwhist
