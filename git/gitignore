@@ -1,6 +1,9 @@
 # Vim temp files
 .*.sw*
 
+# Vim session file
+Session.vim
+
 # Emacs temp files
 *~
 \#*#
