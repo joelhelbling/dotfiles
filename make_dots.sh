@@ -28,11 +28,23 @@ case `uname` in
   # .profile
   echo "source ~/dotfiles/os/mac/dot_bash_profile.sh" > ~/.bash_profile
 
+  # .gitconfig
+  if [ -f ~/.gitconfig ]; then
+    rm -f ~/.gitconfig
+  fi
+  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+
   # .gitignore
   if [ -f ~/.gitignore ]; then
     rm -f ~/.gitignore
   fi
   ln -s ~/dotfiles/git/gitignore ~/.gitignore
+
+  # .tmux.conf
+  if [ -f ~/.tmux.conf ]; then
+    rm -f ~/.tmux.conf
+  fi
+  ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ;;
 "MINGW32_NT-5.1")
   echo "Making dot files for MinGW (on WindowsXP)"
@@ -77,6 +89,12 @@ case `uname` in
     rm -f ~/.gitignore
   fi
   ln -s ~/dotfiles/git/gitignore ~/.gitignore
+
+  # .tmux.conf
+  if [ -f ~/.tmux.conf ]; then
+    rm -f ~/.tmux.conf
+  fi
+  ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
