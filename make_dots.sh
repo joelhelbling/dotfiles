@@ -45,6 +45,12 @@ case `uname` in
     rm -f ~/.tmux.conf
   fi
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+  # .rspec
+  if [ -f ~/.rspec ]; then
+    rm -f ~/.rspec
+  fi
+  ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
 ;;
 "MINGW32_NT-5.1")
   echo "Making dot files for MinGW (on WindowsXP)"
@@ -95,6 +101,12 @@ case `uname` in
     rm -f ~/.tmux.conf
   fi
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+  # .rspec
+  if [ -f ~/.rspec ]; then
+    rm -f ~/.rspec
+  fi
+  ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
