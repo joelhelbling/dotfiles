@@ -1,3 +1,4 @@
+export EDITOR=vim
 
 # load up the stuff we use
 source ~/dotfiles/ui/ps1.sh
