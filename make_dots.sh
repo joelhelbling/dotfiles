@@ -75,13 +75,18 @@ case `uname` in
   echo "Making dot files for Linux"
 
   # .bash_profile
-  if grep -q "dotfiles" ~/.bash_profile
+  PROFILE=~/.bash_profile
+  if [ -f ~/.profile ]; then
+    PROFILE=~/.profile
+  fi
+
+  if grep -q "dotfiles" $PROFILE
   then
-    sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_bash_profile\.sh/g' ~/.bash_profile
+    sed -i 's/source ~\/dotfiles.*/source ~\/dotfiles\/os\/ubuntu\/dot_bash_profile\.sh/g' $PROFILE
   else
-    echo "" >> ~/.bash_profile
-    echo "source ~/dotfiles/os/ubuntu/dot_bash_profile.sh" >> ~/.bash_profile
-    echo "" >> ~/.bash_profile
+    echo "" >> $PROFILE
+    echo "source ~/dotfiles/os/ubuntu/dot_bash_profile.sh" >> $PROFILE
+    echo "" >> $PROFILE
   fi
 
   # .gitconfig
