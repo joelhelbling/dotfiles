@@ -33,6 +33,8 @@ alias bers2='RSPEC_DRB=9090 be rspec --drb'
 alias zars='NO_BIS=y LOCALE="en-ZA" be rails s'
 alias zarc='NO_BIS=y LOCALE="en-ZA" be rails c'
 
+alias mysql_server='/usr/local/bin/mysql.server'
+
 # jump quickly into a project
 function proj {
   pushd `env ruby ~/bin/proj.rb $1 $2`
