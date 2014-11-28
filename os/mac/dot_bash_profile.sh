@@ -3,7 +3,7 @@ export JRUBY_HOME=/opt/local/share/java/jruby
 export RUBYOPT='-rubygems'
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/Users/joelhelbling/bin
 export VIM_APP_DIR=/Applications/editors
-export PROJECT_DIR=$HOME/dev
+export PROJECT_DIR=$HOME/code
 export EDITOR=vim
 
 # load up the stuff we use
