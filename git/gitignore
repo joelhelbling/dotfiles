@@ -51,3 +51,6 @@ database.yml.joel
 
 #ctags stuff
 tags
+
+devnotes.*
+
