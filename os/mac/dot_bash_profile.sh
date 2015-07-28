@@ -16,7 +16,7 @@ source ~/dotfiles/git/git_aliases.sh
 export EC2_HOME=~/.ec2
 export PATH=$PATH:$EC2_HOME/bin
 # export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin/java:$PATH
 
 # some rvm setup

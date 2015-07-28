@@ -13,6 +13,7 @@ alias gull='git pull origin master'
 alias gush='git push origin master'
 alias gk='gitk --all&'
 alias gx='gitx --all'
+alias gitx='/Applications/GitX.app/Contents/MacOS/GitX &'
 
 alias gitst_on='export GIT_PS1_SHOWDIRTYSTATE=true;export GIT_PS1_SHOWSTASHSTATE=true'
 alias gitst_off='export GIT_PS1_SHOWSTASHSTATE=;export GIT_PS1_SHOWSTASHSTATE='

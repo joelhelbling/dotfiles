@@ -21,6 +21,7 @@
   di = diff
   dic = diff --cached
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  gist = log --pretty=format:\"%h %ad | %s%d [%an]\" --oneline --date=short
   bh = log --oneline --graph --decorate --all
   type = cat-file -t
   dump = cat-file -p
@@ -48,3 +49,9 @@
   # --no-rebase if you don't want to auto-rebase
 [push]
   default = current
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[github]
+	user = joelhelbling

@@ -43,3 +43,11 @@ git-svn-authors.txt
 
 # A place for things which don't belong on Github
 .private
+
+# Sometimes I want my very own Procfile, etc.
+Procfile.joel*
+database.yml.joel
+.joel
+
+#ctags stuff
+tags
