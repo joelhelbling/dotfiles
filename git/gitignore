@@ -1,5 +1,6 @@
 # Vim temp files
 .*.sw*
+.vim-backup
 
 # Vim session file
 Session.vim
