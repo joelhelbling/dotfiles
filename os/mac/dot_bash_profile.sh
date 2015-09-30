@@ -2,7 +2,7 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_21.jdk/Contents/Home
 export JRUBY_HOME=/opt/local/share/java/jruby
 export RUBYOPT='-rubygems'
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/Users/joelhelbling/bin
-export VIM_APP_DIR=/Applications/editors
+export VIM_APP_DIR=$HOME/Applications
 export PROJECT_DIR=$HOME/code
 export EDITOR=vim
 
