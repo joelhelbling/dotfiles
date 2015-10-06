@@ -34,6 +34,9 @@ git-svn-authors.txt
 # I keep binstubs here
 .bundler_bin
 
+# ruby
+dump.rdb
+
 # generally don't want to commit rvmrc
 .rvmrc*
 .ruby-version
@@ -55,3 +58,10 @@ tags
 
 devnotes.*
 
+# zeus
+custom_plan.rb
+zeus.json
+
+# ad-hoc scripts in projects
+*.joel.sh
+*.joel.rb
