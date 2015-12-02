@@ -5,6 +5,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/Users/joelhelbling/bin
 export VIM_APP_DIR=$HOME/Applications
 export PROJECT_DIR=$HOME/code
 export EDITOR=vim
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 # load up the stuff we use
 source ~/dotfiles/ui/ps1.sh
