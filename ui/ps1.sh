@@ -12,6 +12,8 @@ export LIGHT_GREEN="\[\e[1;32m\]"
 export PERIWINKLE="\[\e[1;35m\]"
 export NORMAL_COLOR="\[\e[m\]"
 
+export PROMPT_SYMBOL=➤
+
 # git!
 
 # show * for unstaged and + for uncommitted changes
@@ -55,5 +57,5 @@ ${LIGHT_GREEN}<\u@\h> ${PERIWINKLE}(\
 $(echo '$(rvm-prompt)')\
 $(echo '$(type __git_ps1 &>/dev/null && __git_ps1 ",\e[0;32m branch: %s\e[1;35m")')\
 )\n\
-${RED}\w/ ${LIGHT_CYAN}<<<${NORMAL_COLOR} "
+${RED}\w/ ${LIGHT_CYAN}${PROMPT_SYMBOL}${NORMAL_COLOR} "
 
