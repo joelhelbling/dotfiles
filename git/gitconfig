@@ -45,7 +45,7 @@
 [difftool "diffmerge"]
   cmd = diffmerge $LOCAL $REMOTE
 [pull]
-  rebase = true
+	rebase = preserve
   # --no-rebase if you don't want to auto-rebase
 [push]
   default = current
