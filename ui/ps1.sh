@@ -41,11 +41,7 @@ function prettify {
 function format_dirs {
   echo ""
   for DER in `dir_stack`; do
-    if [ "`expr $DER : '.*\(\\/dev\/\)'`" ]; then
-      echo $(prettify $DER)
-    else
-      echo "`echo "$(prettify $DER)" | sed "s@\:\:@ @g"` {$USER's home}"
-    fi
+    echo $(prettify $DER)
   done
 }
 
