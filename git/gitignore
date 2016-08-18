@@ -50,6 +50,7 @@ dump.rdb
 
 # Sometimes I want my very own Procfile, etc.
 Procfile.joel*
+.env.joel*
 database.yml.joel
 .joel
 
