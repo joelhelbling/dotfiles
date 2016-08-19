@@ -41,3 +41,27 @@ function marked(){
     open -a marked.app
   fi
 }
+
+# grep ps aux but still show header row
+function pgrep {
+  if [ $2 ]; then
+    PATTERN=$2
+    PS_ARGS=$1
+  elif [ $1 ]; then
+    PATTERN=$1
+    PS_ARGS=u
+  else
+    echo " pgrep: grep a process list but keep the ps headers."
+    echo
+    echo " USAGE:"
+    echo "   pgrep <pattern>"
+    echo "   pgrep <psarg> <pattern>"
+    echo
+    echo " If no psarg is given, it will default to 'u'."
+  fi
+
+  if [ $PATTERN ]; then
+    ps $PS_ARGS | head -n1
+    ps $PS_ARGS | grep $PATTERN | grep -v 'grep' | grep --color $PATTERN
+  fi
+}
