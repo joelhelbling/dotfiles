@@ -1,11 +1,8 @@
 #!/bin/sh
 
-# source this file from ~/.profile
+source ~/dotfiles/os/common/dot_bash_profile.sh
 
-# load up the stuff we use
-source ~/dotfiles/ui/ps1.sh
-source ~/dotfiles/ui/file_aliases.sh
-source ~/dotfiles/git/git_aliases.sh
+# source this file from ~/.profile
 
 if [ "$USERDOMAIN" == "NWIE" ]; then
   # setup proxy server

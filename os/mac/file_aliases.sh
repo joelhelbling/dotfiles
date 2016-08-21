@@ -8,9 +8,6 @@ alias lS='ls -FalSG'
 alias finder_show_hidden='defaults write com.apple.Finder AppleShowAllFiles YES; killall Finder'
 alias finder_hide_hidden='defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder'
 
-# edit right here
-alias e="subl -n ."
-
 alias spoken_rspec="rspec --no-color --format=progress spec | grep failures | sed 's/.*examples\, //' | sed 's/0/no/' | say &"
 
 # ruby development shortcuts
@@ -21,12 +18,6 @@ alias mate="subl"
 
 #  ruby/rails
 alias be='n bundle exec'
-
-alias rdbm='rake db:migrate db:test:prepare'
-alias bers='be rspec --drb'
-alias bers2='RSPEC_DRB=9090 be rspec --drb'
-
-alias mysql_server='/usr/local/bin/mysql.server'
 
 # jump quickly into a project
 function proj {
@@ -62,6 +53,6 @@ function pgrep {
 
   if [ $PATTERN ]; then
     ps $PS_ARGS | head -n1
-    ps $PS_ARGS | grep $PATTERN | grep -v 'grep' | grep --color $PATTERN
+    ps $PS_ARGS | grep $PATTERN | grep -v grep | grep --color $PATTERN
   fi
 }
