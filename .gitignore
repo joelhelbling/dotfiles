@@ -1,6 +1,4 @@
-*.swp
-proxy.sh
-.idea
-.redcar
-.project
-.private
+proxy/*
+!proxy/proxy.example.sh
+private/*
+!private/README.md
