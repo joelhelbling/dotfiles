@@ -22,8 +22,9 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 # show $ if there are stashed files
 export GIT_PS1_SHOWSTASHSTATE=true
 
-# git completion
+# git
 source ~/dotfiles/git/git-completion.bash
+source ~/dotfiles/git/git-prompt.sh
 
 function dir_stack {
   echo $(dirs -v            | \
