@@ -6,8 +6,10 @@ alias mvim="UBUNTU_MENUPROXY= gvim"
 
 eval 'dircolors ~/dotfiles/os/ubuntu/dircolors.ansi-dark' > /dev/null
 
-source ~/.nvm/nvm.sh
+if [ -f ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
+fi
 
 if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+  source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
