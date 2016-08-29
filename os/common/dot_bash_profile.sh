@@ -18,7 +18,9 @@ sourceScriptsInDir () {
     if [ "$VERBOSE" == "1" ]; then
       echo " - $file"
     fi
-    source $file
+    if [ -f $file ]; then # hack for Ubuntu bash...
+      source $file
+    fi
   done
 
   if [ "$VERBOSE" == "1" ]; then
