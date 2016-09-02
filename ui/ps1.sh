@@ -50,9 +50,9 @@ function format_dirs {
 export PS1="\
 ${CYAN}\
 $(echo '$(format_dirs)')\n\
-${LIGHT_CYAN}<\u@\h> ${RED}《\
+${LIGHT_CYAN}<\u@\h> ${RED}《 \
 ${PERIWINKLE}$(echo '$(rvm-prompt)') ${RED}┃\
-$(echo '$(type __git_ps1 &>/dev/null && __git_ps1 "\e[0;32m ⎇ %s\e[1;30m")')\
+$(echo '$(type __git_ps1 &>/dev/null && __git_ps1 "\e[0;32m ⎇  %s\e[1;30m")')\
 ${RED} 》\n\
 ${RED}\w/ ${LIGHT_CYAN}${PROMPT_SYMBOL}${NORMAL_COLOR} "
 
