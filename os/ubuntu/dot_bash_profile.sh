@@ -10,6 +10,3 @@ if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.s
   source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
-if [ -d ~/.luarocks/bin ]; then
-  export PATH=~/.luarocks/bin:$PATH
-fi
