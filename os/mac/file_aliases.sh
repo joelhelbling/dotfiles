@@ -34,7 +34,7 @@ function marked(){
 }
 
 # grep ps aux but still show header row
-function pgrep {
+function paux {
   if [ $2 ]; then
     PATTERN=$2
     PS_ARGS=$1
