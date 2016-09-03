@@ -1,34 +1,11 @@
 #!/bin/sh
 
 source ~/dotfiles/os/common/dot_bash_profile.sh
+source ~/dotfiles/os/mingw/file_aliases.sh
 
-# source this file from ~/.profile
-
-if [ "$USERDOMAIN" == "NWIE" ]; then
-  # setup proxy server
-  source ~/dotfiles/proxy/proxy.sh
-
-  # handy aliases
-  alias gomavs='cd /c/dev/mavericks'
-  alias gogit='gomavs && cd git-svn'
-  alias gonavs='cd /c/dev/navigators'
-fi
-
-alias mvim='gvim'
-
-# a ruby switcher for MinGW
-if [ "$MSYSTEM" == "MINGW32" ]; then
-  source ~/dotfiles/os/mingw/ruby_switcher.sh
-
-  # setup our ruby aliases
-  alias ruby193='use_ruby ruby 193'
-  alias jruby166='use_ruby jruby 166'
-  alias jruby167='use_ruby jruby 167'
-
-fi
 
 # open a file in a web browser (chrome)
-export BROWSER=/c/Documents\ and\ Settings/helbinj/Local\ Settings/Application\ Data/Google/Chrome/Application/chrome.exe
+export BROWSER=/c/Documents\ and\ Settings/$USER/Local\ Settings/Application\ Data/Google/Chrome/Application/chrome.exe
 function webopen() {
   "$BROWSER" $1/$2
 }
@@ -45,4 +22,3 @@ export RUBYOPT='-rubygems'
 export PATH=$PATH:/c/ruby_devkit/bin
 
 export CUCUMBER_OUTPUT_ENCODING=cp1252
-alias rvm-prompt='active_ruby'

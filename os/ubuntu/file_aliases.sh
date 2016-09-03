@@ -1,3 +1,3 @@
-# ruby/rails
-alias be='bundle exec'
-alias bers='be rspec --drb'
+
+alias mvim="UBUNTU_MENUPROXY= gvim"
+
