@@ -9,6 +9,6 @@ export PROJECT_DIR=$HOME/code
 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/Users/joelhelbling/bin
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$JAVA_HOME/bin/java:$PATH
 
