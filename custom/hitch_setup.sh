@@ -3,14 +3,12 @@
 #
 # Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
 
-if ls `rvm gemdir`/gems/hitch* > /dev/null; then
-  hitch() {
-    command hitch "$@"
-    if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-  }
-  alias unhitch='hitch -u'
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
 
-  # Uncomment to persist pair info between terminal instances
-  # hitch
-fi
+# Uncomment to persist pair info between terminal instances
+# hitch
 
