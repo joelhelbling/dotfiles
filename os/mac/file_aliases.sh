@@ -26,10 +26,10 @@ function proj {
 
 # open a file in Marked.app (markdown preview)
 function marked(){
-  if [ $1 ]; then
-    open -a marked.app $1
-  else
+  if [ -z "$1" ]; then
     open -a marked.app
+  else
+    open -a marked.app $1
   fi
 }
 
