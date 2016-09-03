@@ -12,8 +12,3 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/Users/joelhelbling/bin
 export PATH=$JAVA_HOME/bin/java:$PATH
 
-# some rvm setup
-if [[ -s /Users/joelhelbling/.rvm/scripts/rvm ]] ; then
-  source /Users/joelhelbling/.rvm/scripts/rvm
-fi
-
