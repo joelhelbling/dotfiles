@@ -1,8 +1,4 @@
 
-alias mvim='gvim'
-
-source ~/dotfiles/os/mingw/ruby_switcher.sh
-
 # setup our ruby aliases
 alias ruby193='use_ruby ruby 193'
 alias jruby166='use_ruby jruby 166'
