@@ -53,6 +53,7 @@ Procfile.joel*
 .env.joel*
 database.yml.joel
 .joel
+joel/*
 
 #ctags stuff
 tags
