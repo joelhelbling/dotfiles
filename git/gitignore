@@ -42,6 +42,9 @@ dump.rdb
 .ruby-version
 .ruby-gemset
 
+# nor nvmrc
+.nvmrc
+
 # Not sure what this is, but I don't want to commit it
 .netrwhist
 
