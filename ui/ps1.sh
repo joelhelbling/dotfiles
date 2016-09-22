@@ -46,12 +46,17 @@ function format_dirs {
   done
 }
 
+function node_version {
+  echo "node-`nvm current | sed 's/v//'`"
+}
+
 # setting the console prompt
 export PS1="\
 ${CYAN}\
 $(echo '$(format_dirs)')\n\
-${LIGHT_CYAN}<\u@\h> ${RED}《 \
+${LIGHT_CYAN}<\u@\h> ${RED}《\
 ${PERIWINKLE}$(echo '$(rvm-prompt)') ${RED}┃\
+${DK_GREEN}$(echo '$(node_version)') ${RED}|\
 $(echo '$(type __git_ps1 &>/dev/null && __git_ps1 "\e[0;32m ⎇   %s\e[1;30m")')\
 ${RED} 》\n\
 ${RED}\w/ ${LIGHT_CYAN}${PROMPT_SYMBOL}${NORMAL_COLOR} "
