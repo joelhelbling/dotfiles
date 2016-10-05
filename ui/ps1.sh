@@ -68,7 +68,7 @@ $DIVIDER\
 $(echo '$(git_prompt)') \
 $CLOSE\
 \n\
-[ $CYAN\u@\h ] \
+[ $CYAN\u@\h $DK_YELLOW] \
 $LIGHT_CYAN\w/ \
 $PROMPT"
 
