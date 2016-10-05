@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # colors
-export GRAY="\[\e[1;30m\]"
 export RED="\[\e[1;31m\]"
 export CYAN="\[\e[1;36m\]"
 export LIGHT_CYAN="\[\e[0;36m\]"
@@ -10,11 +9,13 @@ export DK_YELLOW="\[\e[0;33m\]"
 export DK_GREEN="\[\e[0;32m\]"
 export LIGHT_GREEN="\[\e[1;32m\]"
 export PERIWINKLE="\[\e[1;35m\]"
+export MAGENTA="\[\e[0;35m\]"
 export NORMAL_COLOR="\[\e[m\]"
 
-export PROMPT_SYMBOL=➤
-
-# git!
+export    OPEN="${DK_YELLOW}《"
+export DIVIDER="${DK_YELLOW}::"
+export   CLOSE="${DK_YELLOW}》"
+export  PROMPT="${DK_YELLOW}➤${NORMAL_COLOR} "
 
 # show * for unstaged and + for uncommitted changes
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -50,14 +51,24 @@ function node_version {
   echo "node-`nvm current | sed 's/v//'`"
 }
 
+function git_prompt {
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[0;35m ⎇  %s"
+}
+
 # setting the console prompt
 export PS1="\
-${CYAN}\
-$(echo '$(format_dirs)')\n\
-${LIGHT_CYAN}<\u@\h> ${RED}《\
-${PERIWINKLE}$(echo '$(rvm-prompt)') ${RED}┃\
-${DK_GREEN}$(echo '$(node_version)') ${RED}|\
-$(echo '$(type __git_ps1 &>/dev/null && __git_ps1 "\e[0;32m ⎇   %s\e[1;30m")')\
-${RED} 》\n\
-${RED}\w/ ${LIGHT_CYAN}${PROMPT_SYMBOL}${NORMAL_COLOR} "
+$CYAN\
+$(echo '$(format_dirs)')\
+\n
+$OPEN\
+$RED$(echo '$(rvm-prompt)') \
+$DIVIDER \
+$DK_GREEN$(echo '$(node_version)') \
+$DIVIDER\
+$(echo '$(git_prompt)') \
+$CLOSE\
+\n\
+[ $CYAN\u@\h ] \
+$LIGHT_CYAN\w/ \
+$PROMPT"
 
