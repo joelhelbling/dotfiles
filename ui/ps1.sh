@@ -61,14 +61,12 @@ $CYAN\
 $(echo '$(format_dirs)')\
 \n
 $OPEN\
-$RED$(echo '$(rvm-prompt)') \
-$DIVIDER \
 $DK_GREEN$(echo '$(node_version)') \
 $DIVIDER\
 $(echo '$(git_prompt)') \
 $CLOSE\
 \n\
-[ $CYAN\u@\h $DK_YELLOW] \
+[$CYAN \u@\h $DK_YELLOW] \
 $LIGHT_CYAN\w/ \
 $PROMPT"
 
