@@ -39,8 +39,6 @@ dump.rdb
 
 # generally don't want to commit rvmrc
 .rvmrc*
-.ruby-version
-.ruby-gemset
 
 # nor nvmrc
 .nvmrc

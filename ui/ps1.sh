@@ -48,7 +48,9 @@ function format_dirs {
 }
 
 function node_version {
-  echo "node-`nvm current | sed 's/v//'`"
+  if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
+    echo "node-`nvm current | sed 's/v//'`"
+  fi
 }
 
 function git_prompt {
