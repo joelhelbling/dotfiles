@@ -47,14 +47,20 @@ function format_dirs {
   done
 }
 
+function rbenv_version {
+  if [ ! -z `which rbenv` ]; then
+    echo "ruby-`rbenv local` 》"
+  fi
+}
+
 function node_version {
   if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
-    echo "node-`nvm current | sed 's/v//'`"
+    echo "node-`nvm current | sed 's/v//'` 》"
   fi
 }
 
 function git_prompt {
-  type __git_ps1 &>/dev/null && __git_ps1 "\e[0;35m ⎇  %s"
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[1;35m⎇  %s 》"
 }
 
 # setting the console prompt
@@ -62,11 +68,10 @@ export PS1="\
 $CYAN\
 $(echo '$(format_dirs)')\
 \n
-$OPEN\
-$DK_GREEN$(echo '$(node_version)') \
-$DIVIDER\
-$(echo '$(git_prompt)') \
 $CLOSE\
+$RED$(echo '$(rbenv_version)')\
+$DK_GREEN$(echo '$(node_version)')\
+$(echo '$(git_prompt)')\
 \n\
 [$CYAN \u@\h $DK_YELLOW] \
 $LIGHT_CYAN\w/ \
