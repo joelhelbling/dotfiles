@@ -49,7 +49,7 @@ function format_dirs {
 
 function rbenv_version {
   if [ ! -z `which rbenv` ]; then
-    echo "ruby-`rbenv local` 》"
+    echo "ruby-`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` 》"
   fi
 }
 
