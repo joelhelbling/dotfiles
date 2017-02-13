@@ -2,7 +2,7 @@
 
 # colors
 export RED="\[\e[1;31m\]"
-export CYAN="\[\e[1;36m\]"
+export BLUE="\[\e[0;34m\]"
 export LIGHT_CYAN="\[\e[0;36m\]"
 export BR_YELLOW="\[\e[1;33m\]"
 export DK_YELLOW="\[\e[0;33m\]"
@@ -65,7 +65,7 @@ function git_prompt {
 
 # setting the console prompt
 export PS1="\
-$CYAN\
+$BLUE\
 $(echo '$(format_dirs)')\
 \n
 $CLOSE\
@@ -73,7 +73,7 @@ $RED$(echo '$(rbenv_version)')\
 $DK_GREEN$(echo '$(node_version)')\
 $(echo '$(git_prompt)')\
 \n\
-[$CYAN \u@\h $DK_YELLOW] \
+$DK_YELLOW[$BLUE \u@\h $DK_YELLOW] \
 $LIGHT_CYAN\w/ \
 $PROMPT"
 
