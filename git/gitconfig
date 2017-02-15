@@ -30,6 +30,8 @@
   plre = pull --rebase
   st = status
   out = log origin..HEAD
+  l = log --graph --relative-date --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %s %C(yellow)(%ad by %an)%Creset'
+  ll = log --all --graph --relative-date --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %s %C(yellow)(%ad by %an)%Creset'
 [user]
   name = Joel Helbling
   email = joel@joelhelbling.com
