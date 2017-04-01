@@ -65,7 +65,7 @@ function git_prompt {
 
 # setting the console prompt
 export PS1="\
-$BLUE\
+$LIGHT_CYAN\
 $(echo '$(format_dirs)')\
 \n
 $CLOSE\
