@@ -68,3 +68,6 @@ zeus.json
 # ad-hoc scripts in projects
 *.joel.sh
 *.joel.rb
+
+# handles commit hooks in a project
+.overcommit.yml
