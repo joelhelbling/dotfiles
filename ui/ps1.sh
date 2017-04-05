@@ -27,8 +27,10 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 
 # git
-source ~/dotfiles/git/git-completion.bash
-source ~/dotfiles/git/git-prompt.sh
+if [[ "$(uname -s)" != "Darwin" ]] || [ -z `which brew` ] || [ ! -f $(brew --prefix)/etc/bash_completion ]; then
+  source ~/dotfiles/git/git-completion.bash
+  source ~/dotfiles/git/git-prompt.sh
+fi
 
 function dir_stack {
   echo $(dirs -v            | \
