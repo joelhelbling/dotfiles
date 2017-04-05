@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# hub
+if [ ! -z `which hub` ]; then
+  alias git=hub
+fi
+
 # Git aliases
 alias gs='git status'
 alias ga='git add'
