@@ -12,10 +12,13 @@ export PERIWINKLE="\[\e[1;35m\]"
 export MAGENTA="\[\e[0;35m\]"
 export NORMAL_COLOR="\[\e[m\]"
 
-export    OPEN="${DK_YELLOW}《"
-export DIVIDER="${DK_YELLOW}::"
-export   CLOSE="${DK_YELLOW}》"
-export  PROMPT="${DK_YELLOW}➤${NORMAL_COLOR} "
+export   CLOSE="${NORMAL_COLOR}▶"
+export  PROMPT="${DK_YELLOW}✝${NORMAL_COLOR} "
+export EXTRA_SPACE=""
+
+if [[ "$(uname)" = "Linux" ]]; then
+  export EXTRA_SPACE=" "
+fi
 
 # show * for unstaged and + for uncommitted changes
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -49,18 +52,18 @@ function format_dirs {
 
 function rbenv_version {
   if [ ! -z `which rbenv` ]; then
-    echo "ruby-`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` 》"
+    echo "ruby-`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` ▶"
   fi
 }
 
 function node_version {
   if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
-    echo "node-`nvm current | sed 's/v//'` 》"
+    echo "node-`nvm current | sed 's/v//'` ▶"
   fi
 }
 
 function git_prompt {
-  type __git_ps1 &>/dev/null && __git_ps1 "\e[1;35m⎇  %s 》"
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[1;35m⎇  %s ▶"
 }
 
 # setting the console prompt
@@ -69,11 +72,12 @@ $LIGHT_CYAN\
 $(echo '$(format_dirs)')\
 \n
 $CLOSE\
-$RED$(echo '$(rbenv_version)')\
-$DK_GREEN$(echo '$(node_version)')\
-$(echo '$(git_prompt)')\
+$RED$EXTRA_SPACE$(echo '$(rbenv_version)')\
+$DK_GREEN$EXTRA_SPACE$(echo '$(node_version)')\
+$EXTRA_SPACE$(echo '$(git_prompt)')\
 \n\
-$DK_YELLOW[$BLUE \u@\h $DK_YELLOW] \
+$CLOSE\
+$EXTRA_SPACE$BR_YELLOW\u@\h:\
 $LIGHT_CYAN\w/ \
 $PROMPT"
 
