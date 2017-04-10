@@ -61,6 +61,8 @@ function rbenv_version {
 function node_version {
   if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
     echo "node-`nvm current | sed 's/v//'` ▶"
+  elif [ ! -z `which nodenv` ]; then
+    echo "node-`nodenv local 2> /dev/null || nodenv global 2> /dev/null || echo '???'` ▶"
   fi
 }
 
