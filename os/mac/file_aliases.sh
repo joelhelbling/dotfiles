@@ -16,8 +16,8 @@ alias spoken_rspec="rspec --no-color --format=progress spec | grep failures | se
 alias e="subl -n ."
 alias mate="subl"
 
-#  ruby/rails
-alias be='n bundle exec'
+# ruby/rails
+alias be='bundle exec'
 
 # jump quickly into a project
 function proj {
