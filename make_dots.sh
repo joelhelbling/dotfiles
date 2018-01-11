@@ -112,6 +112,10 @@ case `uname` in
     rm -f ~/.rspec
   fi
   ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
+
+  # terminal
+  tic xterm-256color-italic.terminfo
+
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
