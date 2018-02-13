@@ -32,6 +32,7 @@
   out = log origin..HEAD
   l = log --graph --relative-date --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %s %C(yellow)(%ad by %an)%Creset'
   ll = log --all --graph --relative-date --pretty=format:'%C(yellow)%h%Creset%C(blue)%d%Creset %s %C(yellow)(%ad by %an)%Creset'
+  last = log -1 HEAD
 [user]
   name = Joel Helbling
   email = joel@joelhelbling.com
@@ -65,3 +66,9 @@
 	tool = p4mergetool
 [difftool "p4mergetool"]
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+[gpg]
+  program = /usr/bin/krgpg
+[commit]
+  gpgSign = true
+[tag]
+  forceSignAnnotated = true
