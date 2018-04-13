@@ -65,3 +65,9 @@
 	tool = p4mergetool
 [difftool "p4mergetool"]
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+[gpg]
+	program = /usr/bin/krgpg
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true
