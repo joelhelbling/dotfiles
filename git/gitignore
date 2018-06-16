@@ -36,6 +36,7 @@ git-svn-authors.txt
 
 # ruby
 dump.rdb
+.ruby-version
 
 # generally don't want to commit rvmrc
 .rvmrc*
