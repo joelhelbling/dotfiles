@@ -24,3 +24,5 @@ alias lal='ls -al'                            # the one I use all day long
 
 alias l='ls -CF'                              #
 alias lS='ls -FalS --color=tty'               # list by size (descending)
+
+alias gls='git ls-files --full-name'          # list files omitting untracked (by git)
