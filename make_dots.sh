@@ -46,6 +46,14 @@ case `uname` in
   fi
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+  # tmuxinator default template
+  if [ -d ~/.config/tmuxinator ]; then
+    if [ -f ~/.config/tmuxinator/default.yml ]; then
+      rm -f ~/.config/tmuxinator/default.yml
+    fi
+    ln -s ~/dotfiles/tmux/tmuxinator_default.yml ~/.config/tmuxinator/default.yml
+  fi
+
   # .rspec
   if [ -f ~/.rspec ]; then
     rm -f ~/.rspec
@@ -106,6 +114,14 @@ case `uname` in
     rm -f ~/.tmux.conf
   fi
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+  # tmuxinator default template
+  if [ -d ~/.config/tmuxinator ]; then
+    if [ -f ~/.config/tmuxinator/default.yml ]; then
+      rm -f ~/.config/tmuxinator/default.yml
+    fi
+    ln -s ~/dotfiles/tmux/tmuxinator_default.yml ~/.config/tmuxinator/default.yml
+  fi
 
   # .rspec
   if [ -f ~/.rspec ]; then
