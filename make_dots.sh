@@ -107,6 +107,11 @@ case `uname` in
   fi
   ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+  if [ -f ~/.ssh/rc ]; then
+    mv ~/.ssh/rc ~/.ssh/rc-old
+  fi
+  ln -s ~/dotfiles/tmux/sshrc ~/.ssh/rc
+
   # .rspec
   if [ -f ~/.rspec ]; then
     rm -f ~/.rspec
