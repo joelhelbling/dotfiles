@@ -130,7 +130,7 @@ case `uname` in
   ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
 
   # terminal
-  tic xterm-256color-italic.terminfo
+  tic ui/xterm-256color-italic.terminfo
 
 ;;
 *)
