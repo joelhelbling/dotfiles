@@ -86,32 +86,34 @@ function format_dirs {
 
 function rbenv_version {
   if [ ! -z `which rbenv` ]; then
-    echo "ruby-`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` "
+    echo "rb:`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` "
   fi
 }
 
 function node_version {
   if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
-    echo "node-`nvm current | sed 's/v//'`"
+    echo "nd:`nvm current | sed 's/v//'`"
   elif [ ! -z `which nodenv` ]; then
-    echo "node-`nodenv local 2> /dev/null || nodenv global 2> /dev/null || echo '???'` "
+    echo "nd:`nodenv local 2> /dev/null || nodenv global 2> /dev/null || echo '???'` "
   fi
 }
 
 function git_prompt {
-  type __git_ps1 &>/dev/null && __git_ps1 "\e[37m⎇  %s "
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[37m⎇ %s"
 }
 
 function time_stamp {
-  echo `date "+%Y.%m.%d %H:%M:%S %Z"`
+  offset=`expr $(tput cols) - 0`
+  stamp=`date "+%Y.%m.%d %H:%M:%S %Z "`
+  printf '%*s%s' $offset "$stamp"
 }
 
 # setting the console prompt
-export PS1="\
-$ITALICS_ON${FG_BLUE}\
-...completed at $(echo '$(time_stamp)') ⇪\
-$ITALICS_OFF\n\n\
-$BG_BLUE$FG_WHITE \u@\h \
+export PS1="\n\
+$ITALICS_ON$BG_WHITE$FG_DEFAULT\
+$(echo '$(time_stamp)')\
+$BG_DEFAULT$ITALICS_OFF\n\
+$BG_BLUE$FG_WHITE \h \
 $BG_RED$FG_BLUE$DIVIDER\
 $BG_RED$FG_WHITE$EXTRA_SPACE\
 $(echo '$(rbenv_version)')\
