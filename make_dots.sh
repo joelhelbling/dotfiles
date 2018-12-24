@@ -58,7 +58,13 @@ case `uname` in
   if [ -f ~/.rspec ]; then
     rm -f ~/.rspec
   fi
-  ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
+  ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
+
+  # .gemrc
+  if [ -f ~/.gemrc ]; then
+    rm -f ~/.gemrc
+  fi
+  ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
 ;;
 "MINGW32_NT-5.1")
   echo "Making dot files for MinGW (on WindowsXP)"
