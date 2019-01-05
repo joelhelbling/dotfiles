@@ -110,7 +110,7 @@ function time_stamp {
 
 # setting the console prompt
 export PS1="\n\
-$ITALICS_ON$BG_WHITE$FG_DEFAULT\
+$ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
 $(echo '$(time_stamp)')\
 $BG_DEFAULT$ITALICS_OFF\n\
 $BG_BLUE$FG_WHITE \h \
