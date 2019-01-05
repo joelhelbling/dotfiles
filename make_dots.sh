@@ -55,7 +55,7 @@ case `uname` in
   fi
 
   # .rspec
-  if [ -f ~/.rspec ]; then
+  if [ -f ~/.rspec -o -L ~/.rspec ]; then
     rm -f ~/.rspec
   fi
   ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
@@ -130,10 +130,16 @@ case `uname` in
   fi
 
   # .rspec
-  if [ -f ~/.rspec ]; then
+  if [ -f ~/.rspec -o -L ~/.rspec ]; then
     rm -f ~/.rspec
   fi
   ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
+
+  # .gemrc
+  if [ -f ~/.gemrc -o -L ~/.gemrc ]; then
+    rm -f ~/.gemrc
+  fi
+  ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
 
   # terminal
   tic ui/xterm-256color-italic.terminfo
