@@ -133,7 +133,7 @@ case `uname` in
   if [ -f ~/.rspec -o -L ~/.rspec ]; then
     rm -f ~/.rspec
   fi
-  ln -s ~/dotfiles/rspec/dot_rspec ~/.rspec
+  ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
 
   # .gemrc
   if [ -f ~/.gemrc -o -L ~/.gemrc ]; then
