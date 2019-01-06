@@ -6,44 +6,6 @@ case `uname` in
 
   # .profile
   echo "source ~/dotfiles/os/mac/dot_bash_profile.sh" > ~/.bash_profile
-
-  # .gitconfig
-  if [ -f ~/.gitconfig ]; then
-    rm -f ~/.gitconfig
-  fi
-  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
-
-  # .gitignore
-  if [ -f ~/.gitignore ]; then
-    rm -f ~/.gitignore
-  fi
-  ln -s ~/dotfiles/git/gitignore ~/.gitignore
-
-  # .tmux.conf
-  if [ -f ~/.tmux.conf ]; then
-    rm -f ~/.tmux.conf
-  fi
-  ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-
-  # tmuxinator default template
-  if [ -d ~/.config/tmuxinator ]; then
-    if [ -f ~/.config/tmuxinator/default.yml ]; then
-      rm -f ~/.config/tmuxinator/default.yml
-    fi
-    ln -s ~/dotfiles/tmux/tmuxinator_default.yml ~/.config/tmuxinator/default.yml
-  fi
-
-  # .rspec
-  if [ -f ~/.rspec -o -L ~/.rspec ]; then
-    rm -f ~/.rspec
-  fi
-  ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
-
-  # .gemrc
-  if [ -f ~/.gemrc ]; then
-    rm -f ~/.gemrc
-  fi
-  ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
 ;;
 "Linux")
   echo "Making dot files for Linux"
@@ -63,49 +25,49 @@ case `uname` in
     echo "" >> $PROFILE
   fi
 
-  # .gitconfig
-  if [ -f ~/.gitconfig ]; then
-    rm -f ~/.gitconfig
-  fi
-  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
-
-  # .gitignore
-  if [ -f ~/.gitignore ]; then
-    rm -f ~/.gitignore
-  fi
-  ln -s ~/dotfiles/git/gitignore ~/.gitignore
-
-  # .tmux.conf
-  if [ -f ~/.tmux.conf ]; then
-    rm -f ~/.tmux.conf
-  fi
-  ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
-
-  # tmuxinator default template
-  if [ -d ~/.config/tmuxinator ]; then
-    if [ -f ~/.config/tmuxinator/default.yml ]; then
-      rm -f ~/.config/tmuxinator/default.yml
-    fi
-    ln -s ~/dotfiles/tmux/tmuxinator_default.yml ~/.config/tmuxinator/default.yml
-  fi
-
-  # .rspec
-  if [ -f ~/.rspec -o -L ~/.rspec ]; then
-    rm -f ~/.rspec
-  fi
-  ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
-
-  # .gemrc
-  if [ -f ~/.gemrc -o -L ~/.gemrc ]; then
-    rm -f ~/.gemrc
-  fi
-  ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
-
   # terminal
   tic ui/xterm-256color-italic.terminfo
-
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
 ;;
 esac
+
+# .gitconfig
+if [ -f ~/.gitconfig ]; then
+  rm -f ~/.gitconfig
+fi
+ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+
+# .gitignore
+if [ -f ~/.gitignore ]; then
+  rm -f ~/.gitignore
+fi
+ln -s ~/dotfiles/git/gitignore ~/.gitignore
+
+# .tmux.conf
+if [ -f ~/.tmux.conf ]; then
+  rm -f ~/.tmux.conf
+fi
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+# .rspec
+if [ -f ~/.rspec -o -L ~/.rspec ]; then
+  rm -f ~/.rspec
+fi
+ln -s ~/dotfiles/ruby/dot_rspec ~/.rspec
+
+# .gemrc
+if [ -f ~/.gemrc -o -L ~/.gemrc ]; then
+  rm -f ~/.gemrc
+fi
+ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
+
+# tmuxinator default template
+if [ -d ~/.config/tmuxinator ]; then
+  if [ -f ~/.config/tmuxinator/default.yml ]; then
+    rm -f ~/.config/tmuxinator/default.yml
+  fi
+  ln -s ~/dotfiles/tmux/tmuxinator_default.yml ~/.config/tmuxinator/default.yml
+fi
+
