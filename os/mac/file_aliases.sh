@@ -16,11 +16,6 @@ alias spoken_rspec="rspec --no-color --format=progress spec | grep failures | se
 alias e="subl -n ."
 alias mate="subl"
 
-# tmuxinator
-if [ -z `which mux` ]; then
-  alias mux='tmuxinator'
-fi
-
 # open a file in Marked.app (markdown preview)
 function marked(){
   if [ -z "$1" ]; then
