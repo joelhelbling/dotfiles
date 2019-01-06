@@ -16,18 +16,10 @@ alias spoken_rspec="rspec --no-color --format=progress spec | grep failures | se
 alias e="subl -n ."
 alias mate="subl"
 
-# ruby/rails
-alias be='bundle exec'
-
 # tmuxinator
 if [ -z `which mux` ]; then
   alias mux='tmuxinator'
 fi
-
-# jump quickly into a project
-function proj {
-  pushd `env ruby ~/bin/proj.rb $1 $2`
-}
 
 # open a file in Marked.app (markdown preview)
 function marked(){
