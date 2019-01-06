@@ -1,26 +1,5 @@
 #!/bin/bash
 
-function make_win_profile {
-  echo "
-case \`uname\` in
-  \"CYGWIN_NT-5.1\")
-    echo "Running cygwin..."
-    export HOME=/home/
-    source ~/dotfiles/os/cygwin/dot_profile.sh
-    ;;
-  \"MINGW32_NT-5.1\")
-    echo "Running mingw..."
-    source ~/dotfiles/os/mingw/dot_profile.sh
-    ;;
-  \"MINGW32_NT-6.1\")
-    echo "Running mingw..."
-    source ~/dotfiles/os/mingw/dot_profile.sh
-    ;;
-  *)
-    echo \"dot profile: I do not understand this OS\"
-esac" > ~/.profile
-}
-
 case `uname` in
 "Darwin")
   echo "Making dot files for Mac"
@@ -65,25 +44,6 @@ case `uname` in
     rm -f ~/.gemrc
   fi
   ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
-;;
-"MINGW32_NT-5.1")
-  echo "Making dot files for MinGW (on WindowsXP)"
-
-  # .profile
-  #echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
-  make_win_profile
-
-  # .gitignore
-  cp git/gitignore ../.gitignore
-;;
-"MINGW32_NT-6.1")
-  echo "Making dot files for MinGW (on Windows 7)"
-  # .profile
-  #echo "source ~/dotfiles/os/mingw/dot_profile.sh" > ~/.profile
-  make_win_profile
-
-  # .gitignore
-  cp git/gitignore ../.gitignore
 ;;
 "Linux")
   echo "Making dot files for Linux"
