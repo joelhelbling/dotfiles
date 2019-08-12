@@ -16,6 +16,7 @@ Session.vim
 *.iml
 .session.vim
 *.x.vim
+.solargraph.yaml
 
 # mac or something
 .DS_Store
