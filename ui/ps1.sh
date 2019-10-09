@@ -44,8 +44,8 @@ export BG_WHITE="\[\e[47m\]"
 
 export COLOR_RESET="\[\e[0m\]" # reset; clears all colors and styles (to white on black)
 
-export DIVIDER="◤"
-export PROMPT="►"
+export DIVIDER="▞"
+export PROMPT="⚙ "
 
 # if [[ "$(uname)" = "Linux" ]]; then
 #   export EXTRA_SPACE=" "
