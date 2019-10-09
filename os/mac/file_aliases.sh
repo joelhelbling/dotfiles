@@ -1,7 +1,7 @@
 # mac's ls don't like --params
-alias ls='ls -hFG'
-alias dir='ls -lhFGT'
-alias lS='ls -FalSG'
+if [ -z `which exa` ]; then
+  alias ls='ls -hFG'
+fi
 
 # once in a while I want to see hidden files in the finder
 # (e.g. when I want to restore one using time machine)
