@@ -10,12 +10,6 @@ alias finder_hide_hidden='defaults write com.apple.Finder AppleShowAllFiles NO; 
 
 alias spoken_rspec="rspec --no-color --format=progress spec | grep failures | sed 's/.*examples\, //' | sed 's/0/no/' | say &"
 
-# ruby development shortcuts
-# added with the TestDoublers
-
-alias e="subl -n ."
-alias mate="subl"
-
 # open a file in Marked.app (markdown preview)
 function marked(){
   if [ -z "$1" ]; then
