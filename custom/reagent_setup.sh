@@ -1,1 +1,0 @@
-alias reagent='. ~/.ssh/latestagent'
