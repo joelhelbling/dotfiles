@@ -1,3 +1,7 @@
+tmux() {
+  env TERM=screen-256color tmux $@
+}
+
 tach() {
   if [ -z "$TMUX_DEFAULT_SOCKET" ]; then
     echo "You must set TMUX_DEFAULT_SOCKET"
