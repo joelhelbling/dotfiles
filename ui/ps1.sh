@@ -47,9 +47,6 @@ export COLOR_RESET="\[\e[0m\]" # reset; clears all colors and styles (to white o
 export DIVIDER="▞"
 export PROMPT="⚙ "
 
-# if [[ "$(uname)" = "Linux" ]]; then
-#   export EXTRA_SPACE=" "
-# fi
 export EXTRA_SPACE=" "
 
 # show * for unstaged and + for uncommitted changes
@@ -86,7 +83,7 @@ function format_dirs {
 
 function rbenv_version {
   if [ ! -z `which rbenv` ]; then
-    echo "rb:`rbenv local 2> /dev/null || rbenv global 2> /dev/null || echo '???'` "
+    echo "rb:`rbenv version-name 2> /dev/null || echo '???'` "
   fi
 }
 
@@ -94,7 +91,7 @@ function node_version {
   if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
     echo "nd:`nvm current | sed 's/v//'`"
   elif [ ! -z `which nodenv` ]; then
-    echo "nd:`nodenv local 2> /dev/null || nodenv global 2> /dev/null || echo '???'` "
+    echo "nd:`nodenv version-name 2> /dev/null || echo '???'` "
   fi
 }
 
@@ -111,19 +108,21 @@ function time_stamp {
 # setting the console prompt
 export PS1="\n\
 $ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
-$(echo '$(time_stamp)')\
+`echo '$(time_stamp)'`\
 $BG_DEFAULT$ITALICS_OFF\n\
 $BG_BLUE$FG_WHITE \h \
 $BG_RED$FG_BLUE$DIVIDER\
 $BG_RED$FG_WHITE$EXTRA_SPACE\
-$(echo '$(rbenv_version)')\
+`echo '$(rbenv_version)'`\
 $BG_GREEN$FG_RED$DIVIDER\
-$BG_GREEN$FG_WHITE$EXTRA_SPACE$(echo '$(node_version)')\
+$BG_GREEN$FG_WHITE$EXTRA_SPACE\
+`echo '$(node_version)'`\
 $BG_CYAN$FG_GREEN$DIVIDER\
-$BG_CYAN$FG_WHITE$EXTRA_SPACE$(echo '$(git_prompt)')\
+$BG_CYAN$FG_WHITE$EXTRA_SPACE\
+`echo '$(git_prompt)'`\
 $BG_DEFAULT$FG_CYAN$DIVIDER\
 $FG_DEFAULT\
-$(echo '$(format_dirs)')\
+`echo '$(format_dirs)'`\
 \n\
 $BG_DEFAULT$FG_BLUE[0] \w/ \
 $FG_YELLOW$PROMPT$BOLD_OFF\
