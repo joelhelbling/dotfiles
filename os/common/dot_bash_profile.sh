@@ -4,7 +4,6 @@ HISTCONTROL=ignoredups
 export EDITOR=vim
 
 source ~/dotfiles/os/common/file_aliases.sh
-source ~/dotfiles/ui/ps1.sh
 source ~/dotfiles/ui/file_aliases.sh
 source ~/dotfiles/git/git_aliases.sh
 
@@ -31,3 +30,5 @@ sourceScriptsInDir () {
 
 sourceScriptsInDir ~/dotfiles/private
 sourceScriptsInDir ~/dotfiles/custom
+
+source ~/dotfiles/ui/ps1.sh

@@ -124,6 +124,7 @@ $BG_DEFAULT$FG_CYAN$DIVIDER\
 $FG_DEFAULT\
 `echo '$(format_dirs)'`\
 \n\
+\[$(iterm2_prompt_mark)\]\
 $BG_DEFAULT$FG_BLUE[0] \w/ \
 $FG_YELLOW$PROMPT$BOLD_OFF\
 $FG_DEFAULT "
