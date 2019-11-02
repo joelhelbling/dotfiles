@@ -105,6 +105,12 @@ function time_stamp {
   printf '%*s%s' $offset "$stamp"
 }
 
+if [ "`type -t iterm2_prompt_mark`" == "" ]; then
+  iterm2_prompt_mark() {
+    echo ">"
+  }
+fi
+
 # setting the console prompt
 export PS1="\n\
 $ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
