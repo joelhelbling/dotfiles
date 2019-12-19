@@ -45,7 +45,7 @@ export BG_WHITE="\[\e[47m\]"
 export COLOR_RESET="\[\e[0m\]" # reset; clears all colors and styles (to white on black)
 
 export DIVIDER="▞"
-export PROMPT="⚙ "
+export PROMPT="::"
 
 export EXTRA_SPACE=" "
 
@@ -82,21 +82,27 @@ function format_dirs {
 }
 
 function rbenv_version {
-  if [ ! -z `which rbenv` ]; then
+  if [ ! -z `which asdf` ]; then
+    echo "rb:`asdf current ruby | cut -d ' ' -f 1` "
+  elif [ ! -z `which rbenv` ]; then
     echo "rb:`rbenv version-name 2> /dev/null || echo '???'` "
   fi
 }
 
 function node_version {
-  if [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
-    echo "nd:`nvm current | sed 's/v//'`"
+  if [ ! -z `which asdf` ]; then
+    echo "nd:`asdf current nodejs | cut -d ' ' -f 1` "
   elif [ ! -z `which nodenv` ]; then
     echo "nd:`nodenv version-name 2> /dev/null || echo '???'` "
+  elif [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
+    echo "nd:`nvm current | sed 's/v//'`"
+  else
+    echo 'nd: ???'
   fi
 }
 
 function git_prompt {
-  type __git_ps1 &>/dev/null && __git_ps1 "\e[37m⎇ %s"
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[36m⎇  %s"
 }
 
 function time_stamp {
@@ -116,22 +122,20 @@ export PS1="\n\
 $ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
 `echo '$(time_stamp)'`\
 $BG_DEFAULT$ITALICS_OFF\n\
-$BG_BLUE$FG_WHITE \h \
+$BG_BLUE$FG_WHITE @\h \
 $BG_RED$FG_BLUE$DIVIDER\
 $BG_RED$FG_WHITE$EXTRA_SPACE\
 `echo '$(rbenv_version)'`\
 $BG_GREEN$FG_RED$DIVIDER\
 $BG_GREEN$FG_WHITE$EXTRA_SPACE\
 `echo '$(node_version)'`\
-$BG_CYAN$FG_GREEN$DIVIDER\
-$BG_CYAN$FG_WHITE$EXTRA_SPACE\
-`echo '$(git_prompt)'`\
-$BG_DEFAULT$FG_CYAN$DIVIDER\
+$BG_DEFAULT$FG_GREEN$DIVIDER\
 $FG_DEFAULT\
 `echo '$(format_dirs)'`\
 \n\
 \[$(iterm2_prompt_mark)\]\
 $BG_DEFAULT$FG_BLUE[0] \w/ \
+`echo '$(git_prompt)'` \
 $FG_YELLOW$PROMPT$BOLD_OFF\
 $FG_DEFAULT "
 
