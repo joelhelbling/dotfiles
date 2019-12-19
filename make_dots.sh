@@ -63,6 +63,13 @@ if [ -f ~/.gemrc -o -L ~/.gemrc ]; then
 fi
 ln -s ~/dotfiles/ruby/dot_gemrc ~/.gemrc
 
+# .asdfrc
+if [ -f ~/.asdfrc -o -L ~/.asdfrc ]; then
+  rm -f ~/.asdfrc
+fi
+ln -s ~/dotfiles/asdf/dot_asdfrc ~/.asdfrc
+
+
 # tmuxinator default template
 if [ -d ~/.config/tmuxinator ]; then
   if [ -f ~/.config/tmuxinator/default.yml ]; then
