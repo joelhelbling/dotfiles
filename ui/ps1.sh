@@ -81,8 +81,8 @@ function format_dirs {
   done
 }
 
-function rbenv_version {
-  if [ ! -z `which asdf` ]; then
+function ruby_version {
+  if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep ruby`" ]; then
     echo "rb:`asdf current ruby | cut -d ' ' -f 1` "
   elif [ ! -z `which rbenv` ]; then
     echo "rb:`rbenv version-name 2> /dev/null || echo '???'` "
@@ -90,7 +90,7 @@ function rbenv_version {
 }
 
 function node_version {
-  if [ ! -z `which asdf` ]; then
+  if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep nodejs`" ]; then
     echo "nd:`asdf current nodejs | cut -d ' ' -f 1` "
   elif [ ! -z `which nodenv` ]; then
     echo "nd:`nodenv version-name 2> /dev/null || echo '???'` "
@@ -125,7 +125,7 @@ $BG_DEFAULT$ITALICS_OFF\n\
 $BG_BLUE$FG_WHITE @\h \
 $BG_RED$FG_BLUE$DIVIDER\
 $BG_RED$FG_WHITE$EXTRA_SPACE\
-`echo '$(rbenv_version)'`\
+`echo '$(ruby_version)'`\
 $BG_GREEN$FG_RED$DIVIDER\
 $BG_GREEN$FG_WHITE$EXTRA_SPACE\
 `echo '$(node_version)'`\
