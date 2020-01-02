@@ -75,3 +75,9 @@ zeus.json
 
 # handles commit hooks in a project
 .overcommit.yml
+
+# elixir
+.elixir_ls
+
+# tmuxp project-level session config
+.tmuxp.yaml
