@@ -36,7 +36,8 @@
   name = Joel Helbling
   email = joel@joelhelbling.com
 [pull]
-	rebase = preserve
+  merges = rebase
+  # rebase = merge
   # --no-rebase if you don't want to auto-rebase
 [push]
   default = current
