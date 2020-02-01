@@ -9,4 +9,5 @@ if [ ! -z `which docker-compose` ]; then
   alias dc='docker-compose'
   alias dcps='docker-compose ps'
   alias dcx='docker-compose exec'
+  alias dcrm='docker-compose run --rm'
 fi
