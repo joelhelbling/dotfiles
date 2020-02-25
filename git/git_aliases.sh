@@ -24,7 +24,7 @@ alias gush='git push origin master'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias ggrep='git grep -n'
-alias gmr='git br --merged | grep -v \`git br --show-current\` | xargs git br -d'
+alias gmr='git br --merged | grep -v master | xargs git br -d'
 
 alias gitst_on='export GIT_PS1_SHOWDIRTYSTATE=true;export GIT_PS1_SHOWSTASHSTATE=true'
 alias gitst_off='export GIT_PS1_SHOWSTASHSTATE=;export GIT_PS1_SHOWSTASHSTATE='
