@@ -81,3 +81,5 @@ zeus.json
 
 # tmuxp project-level session config
 .tmuxp.yaml
+
+.tool-versions
