@@ -83,7 +83,7 @@ function format_dirs {
 
 function ruby_version {
   if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep ruby`" ]; then
-    echo "rb:`asdf current ruby | cut -d ' ' -f 1` "
+    echo "rb:`asdf current ruby | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
   elif [ ! -z `which rbenv` ]; then
     echo "rb:`rbenv version-name 2> /dev/null || echo '???'` "
   fi
@@ -91,7 +91,7 @@ function ruby_version {
 
 function node_version {
   if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep nodejs`" ]; then
-    echo "nd:`asdf current nodejs | cut -d ' ' -f 1` "
+    echo "nd:`asdf current nodejs | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
   elif [ ! -z `which nodenv` ]; then
     echo "nd:`nodenv version-name 2> /dev/null || echo '???'` "
   elif [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
