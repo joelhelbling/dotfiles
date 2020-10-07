@@ -1,6 +1,7 @@
 # ~/.tmuxinator/<%= name %>.yml
 
-name: <%= name %>
+<% namo = Proc.new { "#{name}" } %>
+name: <%= namo.call %>
 root: ~/code/<%= name %>
 
 # Optional tmux socket
