@@ -69,6 +69,14 @@ if [ -f ~/.asdfrc -o -L ~/.asdfrc ]; then
 fi
 ln -s ~/dotfiles/asdf/dot_asdfrc ~/.asdfrc
 
+# alacrity
+if [ ! -z `which alacritty` ]; then
+  if [ ! -d ~/.config/alacritty ]; then
+    mkdir ~/.config/alacritty
+  fi
+  rm -f ~/.config/alacritty/alacritty.yml
+  ln -s ~/dotfiles/alacritty/config_alacritty.yml ~/.config/alacritty/alacritty.yml
+fi
 
 # tmuxinator default template
 if [ -d ~/.config/tmuxinator ]; then
