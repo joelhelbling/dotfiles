@@ -20,6 +20,7 @@ FG_MAGENTA="\[\e[35m\]"
 FG_RED="\[\e[31m\]"
 FG_YELLOW="\[\e[33m\]"
 FG_WHITE="\[\e[37m\]"
+FG_GREY="\[\e[90m\]"
 
 BG_BLACK="\[\e[40m\]"
 BG_BLUE="\[\e[44m\]"
@@ -33,8 +34,27 @@ BG_WHITE="\[\e[47m\]"
 
 COLOR_RESET="\[\e[0m\]" # reset; clears all colors and styles (to white on black)
 
+declare -A lang_fg=(        \
+  ["default"]="$FG_DEFAULT" \
+  ["host"]="$BOLD_ON$ITALICS_ON$FG_WHITE" \
+  ["ruby"]="$FG_WHITE"      \
+  ["nodejs"]="$FG_WHITE"    \
+)
+declare -A lang_bg=(        \
+  ["default"]="$BG_DEFAULT" \
+  ["host"]="$BG_BLUE"       \
+  ["ruby"]="$BG_RED"        \
+  ["nodejs"]="$BG_GREEN"    \
+)
+declare -A lang_fg_alt=(    \
+  ["default"]="$FG_DEFAULT" \
+  ["host"]="$FG_BLUE$BOLD_OFF$ITALICS_OFF" \
+  ["ruby"]="$FG_RED"        \
+  ["nodejs"]="$FG_GREEN"    \
+)
+
 DIVIDER="▞"
-PROMPT="::"
+PROMPT="|>"
 
 EXTRA_SPACE=" "
 
@@ -52,43 +72,26 @@ fi
 
 function dir_stack {
   echo $(dirs -v            | \
-         grep -v 0          | \
          sort -r            | \
          sed "s@^ @@g"      | \
          sed "s@  @@g"      | \
-         sed "s@[0-9]@[&]::@" )
+         sed "s@[0-9]@<&>::@" )
 }
 
 function prettify {
-  echo "$1" | sed "s@\:\:@ @g"
+  echo $1 | sed "s@\:\:@ @g"
 }
 
 function format_dirs {
   for DER in `dir_stack`; do
-    echo $(prettify $DER)
+    if [[ "$DER" =~ "<0>::" ]]; then
+      DER=""
+    fi
+    echo " $(prettify $DER)"
   done
 }
 
-declare -A lang_fg=(        \
-  ["default"]="$FG_DEFAULT" \
-  ["host"]="$BOLD_ON$ITALICS_ON$FG_WHITE"      \
-  ["ruby"]="$FG_WHITE"      \
-  ["nodejs"]="$FG_WHITE"    \
-)
-declare -A lang_bg=(        \
-  ["default"]="$BG_DEFAULT" \
-  ["host"]="$BG_BLUE"       \
-  ["ruby"]="$BG_RED"        \
-  ["nodejs"]="$BG_GREEN"    \
-)
-declare -A lang_fg_alt=(    \
-  ["default"]="$FG_DEFAULT" \
-  ["host"]="$FG_BLUE$BOLD_OFF$ITALICS_OFF"       \
-  ["ruby"]="$FG_RED"        \
-  ["nodejs"]="$FG_GREEN"    \
-)
-
-function ruby_version {
+function ruby_display {
   if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep ruby`" ]; then
     echo "rb:`asdf current ruby | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
   elif [ ! -z `which rbenv` ]; then
@@ -96,7 +99,7 @@ function ruby_version {
   fi
 }
 
-function nodejs_version {
+function nodejs_display {
   if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep nodejs`" ]; then
     echo "nd:`asdf current nodejs | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
   elif [ ! -z `which nodenv` ]; then
@@ -108,7 +111,7 @@ function nodejs_version {
   fi
 }
 
-function default_version {
+function default_display {
   echo ""
 }
 
@@ -121,12 +124,6 @@ function time_stamp {
   stamp=`date "+%Y.%m.%d %H:%M:%S %Z "`
   printf '%*s%s' $offset "$stamp"
 }
-
-if [ "`type -t iterm2_prompt_mark`" == "" ]; then
-  iterm2_prompt_mark() {
-    echo ">"
-  }
-fi
 
 function colors_for_lang {
   lang=$1
@@ -142,7 +139,7 @@ function transition_divider {
 function transition_lang {
   from=$1
   tew=$2
-  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)$(${tew}_version)"
+  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)$(${tew}_display)"
 }
 
 # setting the console prompt
@@ -155,11 +152,11 @@ $BG_DEFAULT$ITALICS_OFF\n\
 `transition_lang "host" "ruby"`\
 `transition_lang "ruby" "nodejs"`\
 `transition_lang "nodejs" "default"`\
-`echo '$(format_dirs)'`\
-\n\
-\[$(iterm2_prompt_mark)\]\
-$BG_DEFAULT$FG_BLUE[0] \w/ \
 `echo '$(git_prompt)'` \
-$FG_YELLOW$PROMPT$BOLD_OFF\
-$FG_DEFAULT "
+\n$BG_DEFAULT$FG_GREY$ITALICS_ON\
+`echo '$(format_dirs)'`\
+$ITALICS_OFF\
+$BG_DEFAULT$FG_BLUE$BOLD_ON[0] \w/ \
+$FG_YELLOW$PROMPT\
+$COLOR_RESET "
 
