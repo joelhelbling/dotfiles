@@ -49,7 +49,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: none
+  decorations: transparent
 
   # Startup Mode (changes require restart)
   #
@@ -124,7 +124,7 @@ font:
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: Italic Regular
 
   # Bold italic font face
   bold_italic:
@@ -374,7 +374,7 @@ cursor:
   #thickness: 0.15
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -386,7 +386,7 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /bin/bash
+  program: /usr/local/bin/bash
   args:
     - --login
 
@@ -434,7 +434,8 @@ mouse:
     #   - (Linux/BSD) xdg-open
     #   - (Windows) explorer
     launcher:
-     program: xdg-open
+     # program: xdg-open
+      program: open
     #  args: []
 
     # URL modifiers
