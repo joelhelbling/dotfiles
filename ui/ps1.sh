@@ -39,22 +39,34 @@ declare -A lang_fg=(        \
   ["host"]="$BOLD_ON$ITALICS_ON$FG_WHITE" \
   ["ruby"]="$FG_WHITE"      \
   ["nodejs"]="$FG_WHITE"    \
+  ["deno"]="$FG_BLACK"      \
+  ["git"]="$FG_WHITE"       \
 )
 declare -A lang_bg=(        \
   ["default"]="$BG_DEFAULT" \
   ["host"]="$BG_BLUE"       \
   ["ruby"]="$BG_RED"        \
   ["nodejs"]="$BG_GREEN"    \
+  ["deno"]="$BG_WHITE"      \
+  ["git"]="$BG_MAGENTA"     \
 )
 declare -A lang_fg_alt=(    \
-  ["default"]="$FG_DEFAULT" \
+  ["default"]="$FG_BLACK"   \
   ["host"]="$FG_BLUE$BOLD_OFF$ITALICS_OFF" \
   ["ruby"]="$FG_RED"        \
   ["nodejs"]="$FG_GREEN"    \
+  ["deno"]="$FG_WHITE"      \
+  ["git"]="$FG_MAGENTA"     \
+)
+declare -A lang_abbr=( \
+  ["ruby"]="rb"        \
+  ["nodejs"]="nd"      \
+  ["deno"]="🦕"        \
 )
 
 DIVIDER="▞"
-PROMPT="|>"
+# PROMPT="|>"
+PROMPT="💠"
 
 EXTRA_SPACE=" "
 
@@ -91,32 +103,37 @@ function format_dirs {
   done
 }
 
-function ruby_display {
-  if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep ruby`" ]; then
-    echo "rb:`asdf current ruby | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
-  elif [ ! -z `which rbenv` ]; then
-    echo "rb:`rbenv version-name 2> /dev/null || echo '???'` "
-  fi
+function display_dirs {
+  echo "\
+$BG_DEFAULT$FG_GREY$ITALICS_ON\
+`echo '$(format_dirs)'`\
+$ITALICS_OFF\
+"
 }
 
-function nodejs_display {
-  if [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep nodejs`" ]; then
-    echo "nd:`asdf current nodejs | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
-  elif [ ! -z `which nodenv` ]; then
-    echo "nd:`nodenv version-name 2> /dev/null || echo '???'` "
-  elif [ -d ~/.nvm ] && [ ! -z "$(type nvm 2> /dev/null)" ]; then
-    echo "nd:`nvm current | sed 's/v//'`"
-  else
-    echo 'nd: ???'
-  fi
+function display_time {
+  echo "\
+$ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
+`echo '$(time_stamp)'`\
+$BG_DEFAULT$ITALICS_OFF\
+"
 }
 
-function default_display {
-  echo ""
+function lang_display {
+  lang=$1
+  if [ "$lang" == "default" ]; then
+    echo ""
+  elif [ "$lang" == "host" ]; then
+    echo "@\h "
+  elif [ "$lang" == "git" ]; then
+    echo "🐙 `echo '$(git_prompt)'` "
+  elif [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep $lang`" ]; then
+    echo "${lang_abbr[$lang]}:`asdf current $lang | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
+  fi
 }
 
 function git_prompt {
-  type __git_ps1 &>/dev/null && __git_ps1 "\e[36m⎇  %s"
+  type __git_ps1 &>/dev/null && __git_ps1 "\e[37m⎇  %s"
 }
 
 function time_stamp {
@@ -139,23 +156,22 @@ function transition_divider {
 function transition_lang {
   from=$1
   tew=$2
-  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)$(${tew}_display)"
+  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)$(lang_display $tew)"
 }
 
 # setting the console prompt
-export PS1="\n\
-$ITALICS_ON$BG_DEFAULT$FG_DEFAULT\
-`echo '$(time_stamp)'`\
-$BG_DEFAULT$ITALICS_OFF\n\
-`colors_for_lang "host"`\
-@\h \
+export PS1="\
+\n\
+`display_time `\
+\n\
+`transition_lang "default" "host"`\
 `transition_lang "host" "ruby"`\
 `transition_lang "ruby" "nodejs"`\
-`transition_lang "nodejs" "default"`\
-`echo '$(git_prompt)'` \
-\n$BG_DEFAULT$FG_GREY$ITALICS_ON\
-`echo '$(format_dirs)'`\
-$ITALICS_OFF\
+`transition_lang "nodejs" "deno"`\
+`transition_lang "deno" "git"`\
+`transition_lang "git" "default"`\
+\n\
+`display_dirs`\
 $BG_DEFAULT$FG_BLUE$BOLD_ON[0] \w/ \
 $FG_YELLOW$PROMPT\
 $COLOR_RESET "
