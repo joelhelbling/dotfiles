@@ -59,9 +59,9 @@ declare -A lang_fg_alt=(    \
   ["git"]="$FG_MAGENTA"     \
 )
 declare -A lang_abbr=( \
-  ["ruby"]="rb"        \
-  ["nodejs"]="nd"      \
-  ["deno"]="🦕"        \
+  ["ruby"]="🐞rb"        \
+  ["nodejs"]="🐛nd"      \
+  ["deno"]="🦕dn"        \
 )
 
 DIVIDER="▞"
