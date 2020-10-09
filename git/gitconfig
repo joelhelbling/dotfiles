@@ -38,8 +38,7 @@
   email = joel@joelhelbling.com
 [pull]
   merges = rebase
-  # rebase = merge
-  # --no-rebase if you don't want to auto-rebase
+  rebase = true
 [push]
   default = current
 [filter "media"]
