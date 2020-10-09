@@ -42,34 +42,34 @@
 [push]
   default = current
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [github]
-	user = joelhelbling
+  user = joelhelbling
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [merge]
-	tool = p4mergetool
+  tool = p4mergetool
 [mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-	trustExitCode = false
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+  trustExitCode = false
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [diff]
-	tool = p4mergetool
+  tool = p4mergetool
 [difftool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
 [gpg]
-	program = /usr/local/bin/krgpg
+  program = /usr/local/bin/krgpg
 [commit]
-	gpgSign = true
+  gpgSign = true
 [tag]
-	forceSignAnnotated = true
+  forceSignAnnotated = true
