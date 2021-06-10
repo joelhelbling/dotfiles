@@ -17,7 +17,9 @@ alias gbd="git diff \`git merge-base --fork-point master\`"
 alias gc='git commit'
 alias gd='git diff'
 alias gdb="git diff \`git merge-base --fork-point master\`"
-alias gh='git hist'
+if [ -z `which gh` ]; then
+  alias gh=`echo "gh was formerly aliased as 'git hist', but now it's a CLI created by Github.  Install gh, and then use 'git hist'."`
+fi
 alias gco='git checkout'
 alias gull='git plre origin master'
 alias gush='git push origin master'
