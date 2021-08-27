@@ -128,12 +128,16 @@ function lang_display {
   elif [ "$lang" == "git" ]; then
     echo "🐙 `echo '$(git_prompt)'` "
   elif [ ! -z `which asdf` ] && [ ! -z "`asdf plugin list | grep $lang`" ]; then
-    echo "${lang_abbr[$lang]}:`asdf current $lang | sed 's/\s\+/ /g' | cut -d ' ' -f 2` "
+    printf '%s' "${lang_abbr[$lang]}:$(lang_version $lang) "
   fi
 }
 
 function git_prompt {
   type __git_ps1 &>/dev/null && __git_ps1 "\e[37m⎇  %s"
+}
+
+function lang_version {
+  echo "$(asdf current $1 | sed -E 's/ +/ /g' | cut -d ' ' -f 2)"
 }
 
 function time_stamp {
@@ -156,7 +160,7 @@ function transition_divider {
 function transition_lang {
   from=$1
   tew=$2
-  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)$(lang_display $tew)"
+  echo "$(transition_divider $from $tew)$(colors_for_lang $tew)"
 }
 
 # setting the console prompt
@@ -165,10 +169,13 @@ export PS1="\
 `display_time `\
 \n\
 `transition_lang "default" "host"`\
+`lang_display "host"`\
 `transition_lang "host" "ruby"`\
+\$(lang_display "ruby")\
 `transition_lang "ruby" "nodejs"`\
-`transition_lang "nodejs" "deno"`\
-`transition_lang "deno" "git"`\
+\$(lang_display "nodejs")\
+`transition_lang "nodejs" "git"`\
+`lang_display "git"`\
 `transition_lang "git" "default"`\
 \n\
 `display_dirs`\
