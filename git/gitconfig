@@ -21,8 +21,8 @@
   di = diff
   dic = diff --cached
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  gist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --oneline --date=short
-  bh = log --oneline --graph --decorate --all
+  bist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --oneline --date=short
+  bh = log --oneline --graph --decorate --all --date=short
   type = cat-file -t
   dump = cat-file -p
   pl = pull
@@ -51,11 +51,6 @@
   clean = git hawser clean %f
   smudge = git hawser smudge %f
   required = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  required = true
-  process = git-lfs filter-process
 [merge]
   tool = p4mergetool
 [mergetool "p4mergetool"]
@@ -73,3 +68,12 @@
   gpgSign = true
 [tag]
   forceSignAnnotated = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[fetch]
+  prune = true
+[init]
+	defaultBranch = main
