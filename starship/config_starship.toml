@@ -22,7 +22,9 @@ format = "([\uf069{](bold red)[+$added]($added_style)[/](bold dark-white)[-$dele
 format = "([\ue728\\[$all_status$ahead_behind\\]]($style) )"
 modified = "[\uf069](bold red)"
 staged = "[\uf067](bold green)"
-ahead = "[\uf403](bold yellow)"
+ahead = "[\uf062](bold bright-yellow)"
+behind = "[\uf063](bold bright-magenta)"
+# diverged = "[\f09c8 \Udb82ddc8](bold bright-red)"
 style = 'bold bright-purple'
 
 # [battery]
