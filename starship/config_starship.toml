@@ -1,36 +1,111 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# add_newline = true
+format = '$all$fill$battery$time$line_break$character'
+continuation_prompt = '[󱞪 ](bright-black)'
 
-# format = """$all$darcharacter"""
-# right_format = """$all"""
+[character]
+success_symbol = ' [ ](bold bright-green)'
+error_symbol = ' [ ](bold bright-red)'
 
-# Replace the '❯' symbol in the prompt with '➜'
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[✗](bold red) '
+[status]
+style = 'bold bright-red'
+symbol = ' '
 
 [git_branch]
 style = 'bold blue'
-symbol = "[\ue725](bold bright-blue) "
+symbol = '[](bold bright-blue) '
+
+[git_commit]
+disabled = false
 
 [git_metrics]
 disabled = false
-format = "([\uf069{](bold red)[+$added]($added_style)[/](bold dark-white)[-$deleted]($deleted_style)[}](bold red) )"
+format = "([](bright-red)[{](red) [+$added]($added_style)[/](bold bright-black)[-$deleted]($deleted_style) [}](red) )"
 
 [git_status]
-format = "([\ue728\\[$all_status$ahead_behind\\]]($style) )"
-modified = "[\uf069](bold red)"
-staged = "[\uf067](bold green)"
-ahead = "[\uf062](bold bright-yellow)"
-behind = "[\uf063](bold bright-magenta)"
-# diverged = "[\f09c8 \Udb82ddc8](bold bright-red)"
-style = 'bold bright-purple'
+format = "([\\[ $all_status$ahead_behind \\]]($style) )"
+modified = "[ ](bright-red)"
+conflicted = "[󰕚 ](bright-red)"
+staged = "[ ](green)"
+ahead = "[󰧇 ](bright-yellow)"
+behind = "[󰦿 ](bright-magenta)"
+diverged = "[󰧈 ](bright-red)"
+stashed = "[](bright-yellow)"
+untracked = "[](bright-cyan)"
+style = 'bold bright-blue'
 
-# [battery]
-# full_symbol = '🔋 '
-# charging_symbol = '⚡️ '
-# discharging_symbol = '💀 '
-# [[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
-# threshold = 30
-# style = 'bold yellow'
+[time]
+disabled = false
+use_12hr = true
+format = '[ $time]($style) '
+style = 'bold italic bright-black'
+
+[memory_usage]
+disabled = false
+threshold = 80
+
+# [os]
+# disabled = false
+
+# [username]
+# show_always = true
+
+[sudo]
+disabled = false
+symbol = '[ ](bold bright-blue) '
+
+[battery]
+disabled = false
+full_symbol = '󰁹'
+charging_symbol = '󰂄'
+discharging_symbol = '󰂌'
+[[battery.display]] # 'bold red' style and discharging_symbol when capacity is between 0% and 10%
+threshold = 10
+style = 'bold red'
+charging_symbol = '󰢜 '
+discharging_symbol = '󰁺 '
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 20
+style = 'bold yellow'
+charging_symbol = '󰂆 '
+discharging_symbol = '󰁻 '
+[[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = 'bold yellow'
+charging_symbol = '󰂇 '
+discharging_symbol = '󰁼 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 40
+style = 'bold green'
+charging_symbol = '󰂈 '
+discharging_symbol = '󰁽 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 50
+style = 'bold green'
+charging_symbol = '󰢝 '
+discharging_symbol = '󰁾 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 60
+style = 'bold green'
+charging_symbol = '󰂉 '
+discharging_symbol = '󰁿 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 70
+style = 'bold green'
+charging_symbol = '󰢞 '
+discharging_symbol = '󰂀 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 80
+style = 'bold green'
+charging_symbol = '󰂊 '
+discharging_symbol = '󰂁 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 90
+style = 'bold green'
+charging_symbol = '󰂋 '
+discharging_symbol = '󰂂 '
+[[battery.display]] # when capacity is between 30% and 100%
+threshold = 100
+style = 'bold green'
+charging_symbol = '󰂅 '
+discharging_symbol = '󱟞 '
