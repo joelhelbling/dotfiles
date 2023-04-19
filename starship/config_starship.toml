@@ -16,7 +16,10 @@ symbol = "[\ue725](bold bright-blue) "
 
 [git_metrics]
 disabled = false
-format = '[\[](blue)[+$added]($added_style)/[-$deleted]($deleted_style)[\]](blue) '
+format = "([\uf069{](bold yellow)[+$added]($added_style)[/](bold bright-yellow)[-$deleted]($deleted_style)[}](bold yellow) )"
+
+[git_status]
+format = "([\ue728\\[$all_status$ahead_behind\\]]($style) )"
 
 # [battery]
 # full_symbol = '🔋 '
