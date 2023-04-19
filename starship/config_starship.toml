@@ -16,12 +16,13 @@ symbol = "[\ue725](bold bright-blue) "
 
 [git_metrics]
 disabled = false
-format = "([\uf069{](bold yellow)[+$added]($added_style)[/](bold bright-yellow)[-$deleted]($deleted_style)[}](bold yellow) )"
+format = "([\uf069{](bold red)[+$added]($added_style)[/](bold dark-white)[-$deleted]($deleted_style)[}](bold red) )"
 
 [git_status]
 format = "([\ue728\\[$all_status$ahead_behind\\]]($style) )"
-modified = "[\uf069](bold yellow)"
+modified = "[\uf069](bold red)"
 staged = "[\uf067](bold green)"
+ahead = "[\uf403](bold yellow)"
 style = 'bold bright-purple'
 
 # [battery]
