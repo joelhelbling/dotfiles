@@ -20,6 +20,9 @@ format = "([\uf069{](bold yellow)[+$added]($added_style)[/](bold bright-yellow)[
 
 [git_status]
 format = "([\ue728\\[$all_status$ahead_behind\\]]($style) )"
+modified = "[\uf069](bold yellow)"
+staged = "[\uf067](bold green)"
+style = 'bold bright-purple'
 
 # [battery]
 # full_symbol = '🔋 '
