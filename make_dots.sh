@@ -26,7 +26,12 @@ case `uname` in
   fi
 
   # terminal
-  tic ui/xterm-256color-italic.terminfo
+  /usr/bin/tic ui/xterm-256color-italic.terminfo
+
+  # starship
+  if [ -z `which starship` ]; then
+    curl -sS https://starship.rs/install.sh | sh
+  fi
 ;;
 *)
   echo "Don't know how to setup dot files for $1"
