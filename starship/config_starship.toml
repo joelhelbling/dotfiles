@@ -1,0 +1,27 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# add_newline = true
+
+# format = """$all$darcharacter"""
+# right_format = """$all"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[✗](bold red) '
+
+[git_branch]
+style = 'bold blue'
+symbol = "[\ue725](bold bright-blue) "
+
+[git_metrics]
+disabled = false
+format = '[\[](blue)[+$added]($added_style)/[-$deleted]($deleted_style)[\]](blue) '
+
+# [battery]
+# full_symbol = '🔋 '
+# charging_symbol = '⚡️ '
+# discharging_symbol = '💀 '
+# [[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
+# threshold = 30
+# style = 'bold yellow'

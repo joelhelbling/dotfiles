@@ -78,6 +78,12 @@ if [ ! -z `which alacritty` ]; then
   ln -s ~/dotfiles/alacritty/config_alacritty.yml ~/.config/alacritty/alacritty.yml
 fi
 
+# starship
+if [ ! -z `which starship` ]; then
+  rm -f ~/.config/starship.toml
+  ln -s ~/dotfiles/starship/config_starship.toml ~/.config/starship.toml
+fi
+
 # tmuxinator default template
 if [ -d ~/.config/tmuxinator ]; then
   if [ -f ~/.config/tmuxinator/default.yml ]; then
