@@ -17,6 +17,7 @@ Session.vim
 .session.vim
 *.x.vim
 .solargraph.yaml
+.solargraph.yml
 .vscode
 
 # mac or something
